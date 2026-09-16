@@ -1,7 +1,5 @@
 "use client";
 
-import borderCorner from "@/assets/ornaments/borderCorner.svg";
-import Image from "next/image";
 import { ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
@@ -19,10 +17,6 @@ export const Button = ({ title, classN, ...props }: ButtonProps) => {
       >
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-white/50 via-white to-white/50 font-montserrat font-bold">{title}</span>
       </button>
-      <Image className="absolute top-0 left-0" src={borderCorner} alt="ornaments" />
-      <Image className="absolute top-0 right-0 rotate-90" src={borderCorner} alt="ornaments" />
-      <Image className="absolute bottom-0 left-0 rotate-[270deg]" src={borderCorner} alt="ornaments" />
-      <Image className="absolute bottom-0 right-0 rotate-180" src={borderCorner} alt="ornaments" />
     </div>
   );
 };

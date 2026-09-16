@@ -1,11 +1,11 @@
-import { CountdownSection } from "@/components/common/countdown-section";
-import { FaqSection } from "@/components/common/faq-section";
+// import { CountdownSection } from "@/components/common/countdown-section";
+// import { FaqSection } from "@/components/common/faq-section";
 import { Footer } from "@/components/common/footer";
 import { GlobalFooter } from "@/components/common/global-footer";
 import { HeroSection } from "@/components/common/hero-section";
-import { KelompokSection } from "@/components/common/kelompok-section";
-import { SponsorSection } from "@/components/common/sponsor-section";
-import { TimelineSection } from "@/components/common/timeline-section";
+// import { KelompokSection } from "@/components/common/kelompok-section";
+// import { SponsorSection } from "@/components/common/sponsor-section";
+// import { TimelineSection } from "@/components/common/timeline-section";
 import React from "react";
 
 export const dynamic = "force-static";
@@ -15,7 +15,7 @@ export default function Home() {
     <main id="main" className="relative min-h-screen overflow-hidden">
       <HeroSection />
 
-      <KelompokSection />
+      {/* <KelompokSection />
 
       <CountdownSection />
 
@@ -23,7 +23,7 @@ export default function Home() {
 
       <FaqSection />
 
-      <SponsorSection />
+      <SponsorSection /> */}
 
       <Footer />
 

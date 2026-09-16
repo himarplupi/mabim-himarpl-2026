@@ -4,14 +4,13 @@ import { motion as Motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
-interface Flash {
+interface Star {
   id: string;
   x: string;
   y: string;
   color: string;
   delay: number;
-  width: number;
-  height: number;
+  size: number;
   rotation: number;
   lifespan: number;
   opacity: number;
@@ -26,50 +25,56 @@ interface FlashingTextProps {
     first: string;
     second: string;
   };
-  flashLength?: number; // Panjang kilatan (default: 50-150px)
-  flashThickness?: number; // Ketebalan kilatan (default: 2-8px)
+  flashLength?: number; // Ukuran bintang, default 10-30px
 }
 
-export const FlashingText: React.FC<FlashingTextProps> = ({ text, colors = { first: "rgb(129, 102, 227, 0.7)", second: "rgb(7, 35, 89, 0.7)" }, className, flashesCount = 8, flashLength = 100, flashThickness = 5, ...props }) => {
-  const [flashes, setFlashes] = useState<Flash[]>([]);
+export const FlashingText: React.FC<FlashingTextProps> = ({
+  text,
+  colors = { first: "#0160D0", second: "#FAFF22" },
+  className,
+  flashesCount = 1,
+  flashLength = 1,
+
+  ...props
+}) => {
+  const [stars, setStars] = useState<Star[]>([]);
 
   useEffect(() => {
-    const generateFlash = (): Flash => {
-      const flashX = `${Math.random() * 100}%`;
-      const flashY = `${Math.random() * 100}%`;
+    const generateStar = (): Star => {
+      const x = `${Math.random() * 100}%`;
+      const y = `${Math.random() * 10}%`;
       const color = Math.random() > 0.5 ? colors.first : colors.second;
-      const delay = Math.random() * 3;
-      const width = Math.random() * flashLength + 50;
-      const height = Math.random() * flashThickness + 2;
-      const rotation = Math.random() * 180;
-      const lifespan = Math.random() * 15 + 10;
-      const opacity = Math.random() * 0.5 + 0.3;
-      const id = `${flashX}-${flashY}-${Date.now()}`;
-      return { id, x: flashX, y: flashY, color, delay, width, height, rotation, lifespan, opacity };
+      const delay = Math.random() * 9;
+      const size = Math.random() * flashLength;
+      const rotation = Math.random() * 360;
+      const lifespan = Math.random() * 30 + 20;
+      const opacity = Math.random() * 0.5 + 0.5;
+      const id = `${x}-${y}-${Date.now()}-${Math.random()}`;
+      return { id, x, y, color, delay, size, rotation, lifespan, opacity };
     };
 
-    const initializeFlashes = () => {
-      const newFlashes = Array.from({ length: flashesCount }, generateFlash);
-      setFlashes(newFlashes);
+    const initializeStars = () => {
+      const newStars = Array.from({ length: flashesCount }, generateStar);
+      setStars(newStars);
     };
 
-    const updateFlashes = () => {
-      setFlashes((currentFlashes) =>
-        currentFlashes.map((flash) => {
-          if (flash.lifespan <= 0) {
-            return generateFlash();
+    const updateStars = () => {
+      setStars((currentStars) =>
+        currentStars.map((star) => {
+          if (star.lifespan <= 0) {
+            return generateStar();
           } else {
-            return { ...flash, lifespan: flash.lifespan - 0.1 };
+            return { ...star, lifespan: star.lifespan - 0.1 };
           }
-        })
+        }),
       );
     };
 
-    initializeFlashes();
-    const interval = setInterval(updateFlashes, 100);
+    initializeStars();
+    const interval = setInterval(updateStars, 500);
 
     return () => clearInterval(interval);
-  }, [colors.first, colors.second, flashesCount, flashLength, flashThickness]);
+  }, [colors.first, colors.second, flashesCount, flashLength]);
 
   return (
     <div
@@ -83,8 +88,8 @@ export const FlashingText: React.FC<FlashingTextProps> = ({ text, colors = { fir
       }
     >
       <span className="relative inline-block">
-        {flashes.map((flash) => (
-          <LightFlash key={flash.id} {...flash} />
+        {stars.map((star) => (
+          <StarShape key={star.id} {...star} />
         ))}
         {text}
       </span>
@@ -92,20 +97,21 @@ export const FlashingText: React.FC<FlashingTextProps> = ({ text, colors = { fir
   );
 };
 
-const LightFlash: React.FC<Flash> = ({ id, x, y, color, delay, width, height, rotation, opacity }) => {
+const StarShape: React.FC<Star> = ({ id, x, y, color, delay, size, rotation, opacity }) => {
   return (
     <Motion.div
       key={id}
-      className="pointer-events-none absolute z-20 rounded-full"
+      className="pointer-events-none absolute z-20"
       initial={{
         opacity: 0,
         left: x,
-        top: y,
         rotate: rotation,
+        scale: 0.3,
       }}
       animate={{
         opacity: [0, opacity, 0],
-        scaleX: [0.5, 1.2, 0.5],
+        scale: [0.3, 1, 0.3],
+        rotate: [rotation, rotation + 45],
       }}
       transition={{
         duration: 1.5,
@@ -114,11 +120,14 @@ const LightFlash: React.FC<Flash> = ({ id, x, y, color, delay, width, height, ro
         ease: "easeInOut",
       }}
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
-        background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
-        transformOrigin: "center",
+        width: `${size}px`,
+        height: `${size}px`,
+        top: `calc(${y} - 20px)`,
       }}
-    />
+    >
+      <svg viewBox="0 0 24 24" width="100%" height="100%" style={{ filter: `drop-shadow(0 0 4px ${color})` }}>
+        <path d="M12 0 L14.59 8.41 L23 8.41 L16.2 13.6 L18.8 22 L12 16.8 L5.2 22 L7.8 13.6 L1 8.41 L9.41 8.41 Z" fill={color} />
+      </svg>
+    </Motion.div>
   );
 };

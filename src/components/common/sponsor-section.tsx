@@ -1,6 +1,4 @@
 import Image, { type StaticImageData } from "next/image";
-import Bg from "@/assets/bg.svg";
-import Mascot from "@/assets/mascots/smile.svg";
 import Marquee from "react-fast-marquee";
 import { cn } from "@/lib/utils";
 import Dijait from "@/assets/sponsors/Dijait.png";
@@ -15,10 +13,12 @@ import kanght from "@/assets/sponsors/kanght.png";
 import rekapstore from "@/assets/sponsors/rekapstore.png";
 import dicoding from "@/assets/sponsors/dicoding.png";
 import oppa from "@/assets/sponsors/oppa.png";
-import dpm from "@/assets/sponsors/dpm.svg";
 import omg from "@/assets/sponsors/OMG.png";
 import ss from "@/assets/sponsors/ss.png";
 import { BlurFade } from "../ui/blur-fade";
+import bgSponsor from "@/assets/ornaments/yellowMedpart.svg";
+import bgMedpart from "@/assets/ornaments/blueMedpart.svg";
+
 type SponsorMediaPartner = {
   name: string;
   logo: StaticImageData | null;
@@ -56,7 +56,7 @@ const sponsorMediaPartners: SponsorMediaPartner[] = [
 
   {
     name: "dpm",
-    logo: dpm,
+    logo: omg,
   },
   {
     name: "hmve",
@@ -92,22 +92,47 @@ const sponsorMediaPartners: SponsorMediaPartner[] = [
 const firstRow = sponsorMediaPartners.slice(0, 7);
 const secondRow = sponsorMediaPartners.slice(7);
 
-const SponsorMediaPartnerCard = ({ logo, size = "md" }: { logo: StaticImageData | null; size?: "md" | "lg" }) => {
+const SponsorMediaPartnerCard = ({ type, logo, size = "md" }: { type?: "sponsor" | "medpart"; logo: StaticImageData | null; size?: "md" | "lg" }) => {
   return (
-    <figure className={cn("relative flex  cursor-pointer items-center justify-center overflow-hidden  aspect-video rounded-xl object-center p-4", size === "lg" ? "h-40" : "h-24")}>
-      {logo && <Image src={logo} alt="Sponsor or Media Partner Logo" style={{ height: "100%", width: "auto" }} />}
-    </figure>
+    logo && (
+      <figure className={cn("relative flex  cursor-pointer items-center justify-center overflow-hidden object-center ", size === "lg" ? "h-40" : "h-24")}>
+        <Image src={type === "sponsor" ? bgSponsor : bgMedpart} alt="Sponsor or Media Partner Logo" className="h-full w-auto z-[-1]" />
+        <Image src={logo} alt="Sponsor or Media Partner Logo" className="h-[85%] w-auto" />
+      </figure>
+    )
   );
 };
 
 export function SponsorSection() {
   return (
-    <section className="bg-[radial-gradient(101.34%_99.57%_at_50.02%_100%,#010030_7%,#7226FF_55%,#3243A6_100%)] text-center flex  min-h-[812px] w-full flex-col items-center pt-[220px] relative overflow-clip h-screen">
+    <section className="text-center flex  min-h-[812px] w-full flex-col items-center pt-[220px] relative overflow-clip h-screen">
       <BlurFade inView delay={0.25 * 2}>
-        <span className=" bg-gradient-to-r from-white/50 via-white to-white/50 bg-clip-text text-transparent font-ethno text-[40px]/[40px]">
-          Sponsor <br /> & <br /> Medpart
+        <span className="  font-akira text-white text-[36px]/[36px]">
+          Sponsor & <br /> Medpart
         </span>
       </BlurFade>
+      {/* <div className="mt-16 flex flex-row md:flex-col gap-4 items-center">
+      <div className="flex-col md:flex-row gap-4 flex items-center">
+        {
+          Array(3)
+          .fill(firstRow)
+          .flat()
+          .map((sponsorMediaPartner, idx) => (
+            <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} type="sponsor" />
+          ))
+        }
+      </div>
+      <div className="flex-col md:flex-row gap-4 flex items-center">
+        {
+          Array(3)
+          .fill(secondRow)
+          .flat()
+          .map((sponsorMediaPartner, idx) => (
+            <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} type="medpart" />
+          ))
+        }
+      </div>
+      </div> */}
       <Marquee pauseOnHover direction="left" className="mt-16 z-[6]">
         {Array(3)
           .fill(firstRow)
@@ -123,9 +148,7 @@ export function SponsorSection() {
           .map((sponsorMediaPartner, idx) => (
             <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} />
           ))}
-      </Marquee>
-      <Image src={Mascot} alt="mascot" className="absolute top-0 -left-[70px] w-[245px] h-[245px] z-[6] rotate-[345deg]" />
-      <Image src={Bg} alt="bg pattern" className="absolute left-20 top-5 opacity-[8%]  inset-0 sm:hidden w-full h-full object-cover z-[1] scale-[175%] bg-center" />{" "}
+      </Marquee>{" "}
     </section>
   );
 }

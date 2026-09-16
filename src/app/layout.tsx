@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/icon.svg" }],
 };
 
-import { fontE, fontI, fontJ } from "./fonts";
+import { fontE, fontI, fontJ, fontK, fontL } from "./fonts";
 import { ReactLenis } from "@/components/react-lenis";
 import { Loading } from "@/components/providers/loading";
 import Header from "@/components/common/header";
@@ -29,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${geistSans.variable} ${montserrat.variable} ${fontE.variable} ${fontI.variable} ${fontJ.variable}`}>
-      <body className="bg-[#072359]">
+    <html lang="id" className={`${geistSans.variable} ${montserrat.variable} ${fontE.variable} ${fontI.variable} ${fontJ.variable} ${fontK.variable} ${fontL.variable}`}>
+      <body className="bg-[#001735]">
         <Header />
         <Loading>
           <ReactLenis>{children}</ReactLenis>

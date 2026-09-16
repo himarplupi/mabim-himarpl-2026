@@ -1,92 +1,78 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { FlashingText } from "@/components/ui/light-streaks";
 import Image from "next/image";
-import OrnamentPattern from "@/assets/ornaments/Pattern.svg";
-import SmileMascot from "@/assets/mascots/smile.svg";
-import SmileMascot2 from "@/assets/mascots/smile2.svg";
-import SmileMascot3 from "@/assets/mascots/smile3.svg";
-import Bg from "@/assets/bg.svg";
-import { motion as Motion } from "motion/react";
+import starBlue from "@/assets/ornaments/starBlue.svg";
+import blueStarOutline from "@/assets/ornaments/blueStarOutline.svg";
+import yellowStarOutline from "@/assets/ornaments/yellowStarOutline.svg";
+import yellowStar from "@/assets/ornaments/yellowStar.svg";
+import cityScape from "@/assets/ornaments/cityScape.svg";
+import cityScape2 from "@/assets/ornaments/cityScape2.svg";
+import sword from "@/assets/ornaments/blueSword.svg";
+import blueChain from "@/assets/ornaments/blueChain.svg";
+// import { motion as Motion } from "motion/react";
 import Link from "next/link";
 import { BlurFade } from "../ui/blur-fade";
 
 export function HeroSection() {
-  const text = "2K25".split("");
   return (
-    <section className="bg-[radial-gradient(101.34%_99.57%_at_50.02%_0.43%,#010030_7%,#7226FF_55%,#3243A6_100%)] text-center flex min-h-[1000px] h-screen w-full flex-col items-center justify-center gap-y-6 relative overflow-hidden px-4">
-      <BlurFade delay={0.25} inView className="z-[5]">
-        {/* Mobile Headline */}
-        <div className=" sm:hidden z-[5] mt-20">
-          <h1 className="font-ethno text-white text-[32px] [text-shadow:0_0_8px_#8166E3]">EXPLORING MABIM WITH</h1>
-          <FlashingText text="FUTURE TECH" flashesCount={10} flashLength={150} flashThickness={4} className="font-ethno text-white text-[32px] [text-shadow:0_0_8px_#8166E3]" />
-        </div>
-        {/* Desktop Headline */}
-        <div className=" hidden sm:block z-[5] mt-60">
-          <h1 className="font-ethno text-white sm:text-[46px] lg:text-[58px] [text-shadow:0_0_8px_#8166E3]">EXPLORING MABIM</h1>
-          <FlashingText text="WITH FUTURE TECH" flashesCount={10} flashLength={150} flashThickness={4} className="font-ethno text-white sm:text-[46px] lg:text-[58px] [text-shadow:0_0_8px_#8166E3]" />
-        </div>
-      </BlurFade>
+    <section className="text-start flex min-h-[950px]  h-screen w-full flex-col items-center justify-center  relative overflow-hidden px-4">
+      <div className="z-[5] w-full max-w-[343px] md:max-w-[680px] mb-[18px]">
+        <BlurFade delay={0.25} inView className="">
+          {/* Mobile Headline */}
+          <div className="  z-[5]  flex gap-2  items-start relative">
+            <div className="flex flex-col ">
+              <h1 className="font-akira text-white text-[52px]/[48px] [text-shadow:6px_6px_0_#082B5C] ">
+                MABIM
+                <FlashingText text="RPL" flashesCount={10} flashLength={100} className=" text-[#FAFF22]  [text-shadow:6px_6px_0_#082B5C]" />
+              </h1>
+            </div>
+            <div className="rounded-full bg-[#0C7CFE] border-4 border-[#FAFF22] flex flex-col items-center justify-center aspect-square w-[100px] h-[100px] relative">
+              <p className="font-akira text-white text-2xl">20</p>
+              <p className="font-akira text-white text-2xl">26</p>
+              <Image src={yellowStar} alt="star" className="absolute -bottom-4 -left-2 w-[56px] h-[56px] object-cover z-[-1]" />
+              <Image src={blueStarOutline} alt="star" className="absolute -top-10 right-20 w-[38px] h-[38px] object-cover z-[-1]" />
+            </div>
+
+            <Image src={starBlue} alt="star" className="absolute -bottom-8 -left-28 w-[300px] h-[300px] object-cover z-[-1]" />
+          </div>
+        </BlurFade>
+      </div>
       {/* Description */}
       <div className="w-full max-w-[343px] md:max-w-[680px]  z-[6]">
         <BlurFade delay={0.25 * 2} inView className="flex flex-col gap-3">
-          <h4 className="font-montserrat text-[16px] md:text-[20px] text-white font-semibold">&quot;Cyber Root: Menembus Dunia Digital, Berakar Dalam Jati Diri&quot;</h4>
-          <p className="font-montserrat text-[14px]/[18px] md:text-[16px]/[22px] text-[#FFE5F1]">
-            Melalui kegiatan MABIM, diharapkan mahasiswa baru dapat mengenal lebih dekat rekan-rekan seangkatannya, kakak tingkat, dosen, serta budaya yang ada di program studi.
-          </p>
-          <p className="font-montserrat text-[14px]/[18px] md:text-[16px]/[22px] text-[#FFE5F1]">
-            Selain itu, kegiatan ini juga bertujuan untuk menumbuhkan rasa memiliki terhadap jurusan serta memupuk jiwa kepemimpinan dan keorganisasian sejak dini.
+          <div className="w-full h-[75px] border-3 border-l-[6px]  border-[#faff22] [clip-path:polygon(0_0,100%_0,100%_0,97%_100%,0_100%)] flex items-start justify-center px-[18px] py-3 flex-col mb-[18px]">
+            <h4 className="font-trueno-black text-[#faff22] text-base">Wingbyte Generations:</h4>
+            <h4 className="font-trueno-bold text-white text-[10px]">Mengepakkan Sayap Inovasi, tuk gapai titik kemenangan</h4>
+          </div>
+          <p className="font-montserrat text-[14px]/[18px] md:text-[16px]/[22px] text-white/55 text-justify">
+            MABIM RPL adalah kegiatan orientasi dan pembekalan mahasiswa baru Program Studi Rekayasa Perangkat Lunak bergabunglah dan mulai perjalananmu bersama keluarga HIMARPL.
           </p>
         </BlurFade>
       </div>
-      <BlurFade delay={0.25 * 3} inView className="z-[5]">
-        <div className="flex items-center gap-10 mt-[32px] z-[5] lg:gap-50">
-          <Link href="https://drive.google.com/file/d/1NfB0BsIfFZu-ffspQaTD-6kLTiscXYMZ/view" target="_blank">
-            <Button title="Twibbon" classN="md:w-[180px] md:h-[50px]" />
-          </Link>
-          <Link href="https://drive.google.com/drive/folders/1pgsNdC6gbFA9PIvhSUvj6O5ySA8SPiHk" target="_blank">
-            <Button title="Booklet" classN="md:w-[180px] md:h-[50px]" />
-          </Link>
-        </div>
-      </BlurFade>
-      {/* Mascot */}
-      <BlurFade delay={0.25 * 4} inView className=" w-full z-[6]">
-        <div className="w-full flex justify-center relative">
-          <Motion.div animate={{ y: [0, 7, 0] }} transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }} className="z-[6] absolute left-20 bottom-0 hidden xl:block">
-            <Image src={SmileMascot2} alt="Mascot" className="w-[360px] " />
-          </Motion.div>
-
-          <div className="flex items-center justify-center select-none gap-0 relative">
-            <Image src={SmileMascot} alt="Mascot" className="w-[204px] sm:w-[204px] md:w-[260px] lg:w-[380px] h-auto z-[6]" />
-            <div className="z-[3] leading-none -ml-12 md:-ml-18 lg:-ml-22 relative">
-              <p className="font-montserrat font-black bg-gradient-to-r from-white/50 via-white to-white/50 bg-clip-text text-transparent text-[52px] md:text-[62px] lg:text-[96px] z-[1] text-start left-[160px] mr-15">MABIM</p>
-              <span className="flex items-baseline">
-                <p className="font-montserrat font-black bg-gradient-to-r from-white/50 via-white to-white/50 bg-clip-text text-transparent text-[52px] md:text-[62px] lg:text-[96px] z-[1] text-start left-[160px]">RPL</p>
-                <div className="flex z-[6] mr-10 -ml-2 lg:-ml-4">
-                  {text.map((char, i) => (
-                    <span
-                      key={i}
-                      className="bg-[radial-gradient(101.34%_99.57%_at_50.02%_0.43%,#010030_7%,#7226FF_55%,#87F5F5_100%)]
-                          text-transparent bg-clip-text font-jumbo 
-                          text-[48.42px] md:text-[70px] lg:text-[90px] [-webkit-text-stroke:0.8px_white] not-last:mr-[-16px] sm:not-last:mr-[-16px] md:not-last:mr-[-22] lg:not-last:mr-[-32px]"
-                    >
-                      {char}
-                    </span>
-                  ))}
-                </div>
-              </span>
-            </div>
+      <div className="w-full max-w-[343px] md:max-w-[680px]">
+        <BlurFade delay={0.25 * 3} inView className="z-[5]">
+          <div className="flex flex-col w-full max-w-[343px] md:max-w-[680px] relative items-start justify-center gap-4  z-[5] ">
+            <Link href="" target="_blank">
+              <div className="bg-[#faff22] px-7 py-3 [clip-path:polygon(0_0,100%_0,100%_100%,10%_100%,0_70%)] hover:scale-105 transition-all duration-300 ease-in-out relative">
+                <p className="font-trueno-regular text-[#001735] tracking-widest">Twibbon</p>
+              </div>
+              <Image src={yellowStar} alt="star" className="absolute top-6 left-10 w-[40px] h-[40px] object-cover z-[-1]" />
+            </Link>
+            <Link href="" target="_blank">
+              <div className="border-[#0C7CFE] border-[3px] px-7 py-3 [clip-path:polygon(0_0,100%_0,100%_100%,10%_100%,0_70%)] hover:scale-105 transition-all duration-300 ease-in-out">
+                <p className="font-trueno-regular text-white tracking-widest">Booklet</p>
+              </div>
+            </Link>
+            <Image src={sword} alt="ornaments" className=" absolute -top-8 right-28 rotate-[-25deg] w-auto h-fit object-fill" />
+            <Image src={yellowStarOutline} alt="ornaments" className=" absolute bottom-0 right-0 w-[70px] h-[70px] object-fill" />
           </div>
-          <Motion.div className="z-[6] absolute right-15 -top-5 hidden xl:block" animate={{ x: [0, 6, 0] }} transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}>
-            <Image src={SmileMascot3} alt="Mascot" className="w-[380px] " />
-          </Motion.div>
-        </div>
-      </BlurFade>
-      {/* Backgrounds */}
-      <Image src={Bg} alt="bg pattern" className="absolute left-20 top-5 opacity-[8%]  inset-0  w-full h-full object-cover z-[1] scale-[175%] bg-center" />{" "}
-      <Image src={OrnamentPattern} alt="ornaments" className="absolute bottom-0 left-0  w-full h-fit z-[1] scale-[320%] sm:hidden" />
-      <div className="absolute bottom-0  bg-gradient-to-b from-[#010030] to-[#030096] w-[534px] h-[234px] rounded-full blur-2xl sm:hidden"></div>
+        </BlurFade>
+      </div>
+
+      <Image src={cityScape2} alt="ornaments" className="sm:hidden absolute top-20 right-0 w-screen h-auto object-fill" />
+      <Image src={cityScape} alt="ornaments" className="hidden absolute top-0 right-0 w-screen h-auto object-fill" />
+      <Image src={blueChain} alt="ornaments" className="absolute bottom-0 -left-0 rotate-[76deg] w-[32px] h-auto" />
     </section>
   );
 }

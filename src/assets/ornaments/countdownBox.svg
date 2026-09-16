@@ -1,0 +1,15 @@
+<svg width="95" height="74" viewBox="0 0 95 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="path-1-inside-1_1438_8641" fill="white">
+<path d="M0 0H94.41V74H0V0Z"/>
+</mask>
+<path d="M0 0H94.41V74H0V0Z" fill="#082B5C" fill-opacity="0.5"/>
+<path d="M0 0V-2H-2V0H0ZM94.41 0H96.41V-2H94.41V0ZM94.41 74V76H96.41V74H94.41ZM0 74H-2V76H0V74ZM0 0V2H94.41V0V-2H0V0ZM94.41 0H92.41V74H94.41H96.41V0H94.41ZM94.41 74V72H0V74V76H94.41V74ZM0 74H2V0H0H-2V74H0Z" fill="#FFF200" fill-opacity="0.3" mask="url(#path-1-inside-1_1438_8641)"/>
+<mask id="path-3-inside-2_1438_8641" fill="white">
+<path d="M0 0H10V10H0V0Z"/>
+</mask>
+<path d="M0 0V-2H-2V0H0ZM0 0V2H10V0V-2H0V0ZM0 10H2V0H0H-2V10H0Z" fill="#FAFF22" mask="url(#path-3-inside-2_1438_8641)"/>
+<mask id="path-5-inside-3_1438_8641" fill="white">
+<path d="M84.4004 0H94.4004V10H84.4004V0Z"/>
+</mask>
+<path d="M94.4004 0H96.4004V-2H94.4004V0ZM84.4004 0V2H94.4004V0V-2H84.4004V0ZM94.4004 0H92.4004V10H94.4004H96.4004V0H94.4004Z" fill="#FAFF22" mask="url(#path-5-inside-3_1438_8641)"/>
+</svg>

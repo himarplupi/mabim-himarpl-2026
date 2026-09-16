@@ -30,11 +30,11 @@ const navLinks = [
   },
   {
     name: "Surat Keterangan Izin",
-    href: "http://bit.ly/3VBSvBK",
+    href: "https://docs.google.com/document/d/1ZQcpYvlMMY3JObpKlnE2vJZE8YBpCigZUD7OzaJzrs0/edit?usp=drive_link",
   },
   {
     name: "Form Pelaporan Panitia",
-    href: "https://forms.gle/nxKrWG4eE7PfW9Rm9",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLSfq4MFEM7p-hzPGVtOxCCNzZR3K8CHeCRzxztKDRNpO_djCxw/viewform",
   },
   {
     name: "Instagram Mabim RPL",
@@ -54,13 +54,13 @@ export function Footer() {
   };
 
   return (
-    <footer className=" relative z-10 bg-[radial-gradient(101.34%_99.57%_at_50.02%_0.43%,#010030_7%,#7226FF_55%,#7226FF_100%)]">
+    <footer className=" relative z-10 bg-[#001735] w-full border-t-4 border-[#FAFF22]">
       <div className="p-8 flex flex-col gap-4  md:flex-row md:items-center">
-        <p className="font-montserrat text-lg text-neutral-200 md:text-xl">
-          Tujuan dari Mabim RPL 2025 adalah untuk membantu mahasiswa baru dalam mengorientasikan diri mereka terhadap lingkungan akademik, mata kuliah dan kegiatan yang berkaitan dengan Rekayasa Perangkat Lunak UPI Kampus Cibiru.
+        <p className="font-montserrat text-lg text-white md:text-xl">
+          Tujuan dari Mabim RPL 2026 adalah untuk membantu mahasiswa baru dalam mengorientasikan diri mereka terhadap lingkungan akademik, mata kuliah dan kegiatan yang berkaitan dengan Rekayasa Perangkat Lunak UPI Kampus Cibiru.
         </p>
 
-        <ul className="ml-4 flex min-w-72 flex-col gap-y-2 border-l border-[#AC8FDB] py-3 pl-6">
+        <ul className="ml-4 flex min-w-72 flex-col gap-y-2 border-l border-[#FAFF22] py-3 pl-6">
           {navLinks.map((link) => {
             const external = isExternalLink(link.href);
             return (

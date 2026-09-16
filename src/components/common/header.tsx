@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
-import ShieldLogo from "@/app/icon.svg";
+import logo from "@/app/icon.svg";
 import { useLenis } from "lenis/react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useState, useRef, useEffect } from "react";
-import HamburgerIcon from "@/assets/ornaments/Hamburger.svg";
+import HamburgerIcon from "@/assets/ornaments/menuBtn.svg";
+import Highlight from "@/assets/ornaments/highlightMenu.svg";
 import Link from "next/link";
 import { motion as Motion } from "motion/react";
 import { usePathname } from "next/navigation";
@@ -16,6 +17,8 @@ export default function Header() {
   const [showHeader, setShowHeader] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
 
+  const [activeLink, setActiveLink] = useState<string | null>(null);
+
   // const [isClient, setIsClient] = useState(false);
   const pathname = usePathname();
   const navLinks = [
@@ -24,8 +27,8 @@ export default function Header() {
     { name: "Countdown", href: "#countdown" },
     { name: "Timeline", href: "#timeline" },
     { name: "FAQ", href: "#faq" },
-    { name: "Documentation", href: "/documentation" },
-    { name: "Essay", href: "/essay" },
+    // { name: "Documentation", href: "/documentation" },
+    // { name: "Essay", href: "/essay" },
   ];
 
   const lenis = useLenis();
@@ -72,14 +75,17 @@ export default function Header() {
         damping: 10,
         mass: 1,
       }}
-      className={`fixed top-5 left-1/2 transform -translate-x-1/2 w-[95%] z-50 flex items-center justify-between md:pl-6 md:pr-10 px-5 md:py-2 py-2 shadow-lg bg-[#ffffff]/20 border border-[#6C2EF2] backdrop-blur-sm ${show ? "" : "hidden"}`}
+      className={`fixed top-5 left-1/2 transform -translate-x-1/2 w-[95%] z-50 flex items-center justify-between md:pl-6 md:pr-10 px-5 md:py-2 py-2 shadow-lg bg-[#061B3A] border-2 border-[#FAFF22] ${show ? "" : "hidden"}`}
     >
       <div className="flex items-center gap-3">
-        <Image src={ShieldLogo} alt="Logo" className="w-12 sm:w-15" />
-        <span className="font-ethno text-md sm:text-base md:text-lg lg:text-xl text-[#E5E5E5] tracking-wide">MABIM RPL 2025</span>
+        <Image src={logo} alt="Logo" className="w-12 sm:w-15" />
+        <div className="flex flex-col">
+          <span className="font-akira text-md sm:text-base md:text-lg lg:text-xl text-[#fff] tracking-widest">MABIM RPL</span>
+          <span className="font-trueno-bold text-[10px] sm:text-sm md:text-md lg:text-base text-[#FAFF22] tracking-[2.5px]">2026</span>
+        </div>
       </div>
       {/* Desktop Nav */}
-      <nav className="hidden md:flex gap-6 sm:gap-2 md:gap-4 lg:gap-6 text-sm sm:text-xs md:text-xs lg:text-sm font-medium text-[#E5E5E5]">
+      <nav className="hidden font-trueno-bold md:flex gap-6 sm:gap-2 md:gap-4 lg:gap-6 text-sm sm:text-xs md:text-xs lg:text-sm font-medium text-[#fff]">
         {navLinks.map((link) => (
           <Link
             key={link.name}
@@ -108,25 +114,31 @@ export default function Header() {
         </SheetTrigger>
         <SheetContent>
           <SheetTitle hidden>im here</SheetTitle>
-          <div className="flex flex-col !z-50 mt-4 items-end gap-5 text-white">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className=" text-[20px] font-medium py-4 px-8 transition-all cursor-pointer"
-                onClick={(e) => {
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  if ((link as any).disabled) {
-                    e.preventDefault();
-                    return;
-                  }
-                  setIsOpen(false);
-                  handleLinkClick(link.href, e);
-                }}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <div className="flex flex-col relative z-60 mt-4 items-start gap-5 text-white">
+            {navLinks.map((link) => {
+              const isActive = activeLink === link.href;
+
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="group text-[20px] font-montserrat font-medium py-2 px-8 transition-all w-full cursor-pointer relative"
+                  onClick={(e) => {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    if ((link as any).disabled) {
+                      e.preventDefault();
+                      return;
+                    }
+                    setActiveLink(link.href);
+                    setIsOpen(false);
+                    handleLinkClick(link.href, e);
+                  }}
+                >
+                  {isActive && <Image src={Highlight} fill className="h-fill" alt="highlight" />}
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
         </SheetContent>
       </Sheet>

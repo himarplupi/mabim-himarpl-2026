@@ -9,18 +9,20 @@ import { motion as Motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDownIcon } from "@radix-ui/react-icons";
+import { PlusIcon } from "@radix-ui/react-icons";
+import Box from "@/assets/ornaments/box.svg";
+import Image from "next/image";
 
 const faqs = [
   {
     id: "item-1",
     question: "Berapa Lama MABIM Dilaksanakan?",
-    answer: "MABIM dilaksanakan selama 4 hari dalam kurun waktu 1 bulan, dimana setiap pelaksanaannya diadakan pada hari Minggu, kecuali day 2 yang dilaksanakan pada hari Sabtu.",
+    answer: "MABIM dilaksanakan selama 4 hari dalam kurun waktu 1 bulan, dimana setiap pelaksanaannya diadakan pada hari sabtu, kecuali day 2 yang dilaksanakan pada hari Minggu.",
   },
   {
     id: "item-2",
     question: "Apa Kepanjangan dari MABIM RPL?",
-    answer: "Kepanjangan dari Mabim adalah Masa Bimbingan. Jadi, Mabim RPL artinya Masa Bimbingan yang dilaksanakan untuk mahasiswa baru dengan Prodi RPL atau Rekayasa Perangkat Lunak",
+    answer: "Kepanjangan dari Mabim adalah Masa Bimbingan. Jadi, Mabim RPL artinya Masa Bimbingan yang dilaksanakan untuk mahasiswa baru Program studi Rekayasa Perangkat Lunak",
   },
   {
     id: "item-3",
@@ -49,20 +51,21 @@ export function FAQAccordions() {
   const [activeIndex, setActiveIndex] = useState("");
 
   return (
-    <AccordionPrimitive.Root defaultValue="item-1" onValueChange={setActiveIndex} type="single" collapsible className="w-full max-w-4xl mx-auto px-6 font-montserrat text-white z-[6]">
+    <AccordionPrimitive.Root defaultValue="item-1" onValueChange={setActiveIndex} type="single" collapsible className="w-full max-w-4xl mx-auto px-6 font-trueno-bold text-white z-[6]">
       {faqs.map((faq) => (
-        <AccordionPrimitive.Item value={faq.id} key={faq.id} className="accordionItem  overflow-hidden rounded-md border border-white/20">
+        <AccordionPrimitive.Item value={faq.id} key={faq.id} className="accordionItem  overflow-hidden ">
           <AccordionPrimitive.Header className="flex">
-            <AccordionPrimitive.Trigger className="group flex flex-1 cursor-pointer items-center justify-between bg-[#010030]/10 px-4 py-3 text-left font-semibold transition-all hover:bg-[#010030]/20">
+            <AccordionPrimitive.Trigger className="group flex flex-1 cursor-pointer items-center justify-between  px-4 py-3 text-left transition-all hover:scale-105">
               {faq.question}
-              <ChevronDownIcon className="h-4 w-4 transition-transform duration-300 ease-in-out group-data-[state=open]:rotate-180" />
+              <div className="h-8 w-8 transition-all duration-300 ease-in-out border-4 border-[#FFF200] group-data-[state=open]:rotate-45  group-data-[state=open]:bg-[#FFF200]">
+                <PlusIcon className="h-4 w-4" />
+              </div>
             </AccordionPrimitive.Trigger>
           </AccordionPrimitive.Header>
 
-          <AccordionPrimitive.Content className="accordionContent data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden">
-            <div className="bg-white/20 px-4 py-3">
-              <div className="text-sm">{faq.answer}</div>
-            </div>
+          <AccordionPrimitive.Content className="accordionContent data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden relative">
+            <Image src={Box} alt="ornament" className="absolute inset-0 h-full w-full " />
+            <div className="text-sm">{faq.answer}</div>
           </AccordionPrimitive.Content>
         </AccordionPrimitive.Item>
       ))}
