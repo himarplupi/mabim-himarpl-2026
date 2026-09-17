@@ -1,26 +1,23 @@
 "use client";
 import Image from "next/image";
-import Bg from "@/assets/bg.svg";
-import card from "@/assets/cardKelompok.svg";
-import card2 from "@/assets/cardKelompok2.svg";
-import { Button } from "../ui/button";
-import Mascot from "@/assets/mascots/default.svg";
 import { useLenis } from "lenis/react";
 import { useEffect, useState } from "react";
 import Gun from "@/assets/gun.svg";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/Dialog";
 import { type GroupMabim, groupMabim, type Mentee } from "@/components/common/group-mabim";
-
+import arrow from "@/assets/ornaments/arrow.svg";
 import { motion as Motion } from "motion/react";
 
 import { SiWhatsapp } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import { GlitchText } from "../ui/glitch-effects";
 import { BlurFade } from "../ui/blur-fade";
+import yellowStar from "@/assets/ornaments/yellowStar.svg";
+import blueStarOutline from "@/assets/ornaments/blueStarOutline.svg";
 
 export function KelompokSection() {
   const lenis = useLenis();
-  const [name, setName] = useState("");
+  const [nim, setNim] = useState("");
   const [mentee, setMentee] = useState<Mentee | undefined>();
   const [group, setGroup] = useState<GroupMabim | undefined>();
   const [isNotFound, setIsNotFound] = useState(false);
@@ -35,10 +32,10 @@ export function KelompokSection() {
   }, [isOpen, isNotFound]);
 
   const handleSearch = () => {
-    const cleanName = name.toLowerCase().trim();
-    const currentGroup = groupMabim.find((group) => group.mentees.some((mentee) => mentee.name.toLowerCase() === cleanName));
+    const cleanNim = nim.toLowerCase().trim();
+    const currentGroup = groupMabim.find((group) => group.mentees.some((mentee) => mentee.nim.toLowerCase() === cleanNim));
     if (currentGroup) {
-      const currentMentee = currentGroup.mentees.find((mentee) => mentee.name.toLowerCase() === cleanName);
+      const currentMentee = currentGroup.mentees.find((mentee) => mentee.nim.toLowerCase() === cleanNim);
       setIsNotFound(false);
       setGroup(currentGroup);
       setMentee(currentMentee);
@@ -51,54 +48,62 @@ export function KelompokSection() {
   };
 
   return (
-    <section
-      id="kelompok"
-      className="bg-[radial-gradient(101.34%_99.57%_at_50.02%_100%,#010030_7%,#7226FF_55%,#3243A6_100%)]
- text-center flex min-h-[812px] h-screen w-full flex-col items-center pt-[140px] relative overflow-clip"
-    >
-      <BlurFade delay={0.25 * 2} inView className="w-full z-[6]">
-        <div className="relative flex w-full items-center flex-col gap-6 z-[6] md:mt-20">
-          <Image src={card} alt="card" className="absolute -bottom-10 w-[343px] z-[5] md:hidden " />
-          <Image src={card2} alt="card" className="absolute -bottom-[60px] w-[800px] z-[5] md:block hidden" />
+    <section id="kelompok" className=" flex max-h-[600px] h-screen w-full flex-col items-center  relative overflow-hidden bg-[#0A1C38] pt-32 [clip-path:polygon(100%_0,100%_0,100%_100%,0%_100%,0_15%)]">
+      <div className="w-full max-w-[343px] md:max-w-[680px]">
+        <BlurFade delay={0.25 * 2} inView className="z-[6]">
+          <div className="relative flex flex-col gap-6 z-[6] mb-7">
+            <div className="w-[311px] md:w-[679px] z-[6] relative">
+              <div className="w-full h-fit relative">
+                <span className=" text-white font-akira text-[34px]/[42.3px] md:text-[40px]/[48px]">
+                  Temukan Kelompok <span className="text-[#0C7CFE]">MABIM</span>
+                  <span className="text-[#faff22]">mu</span>
+                </span>
+                <div className="z-[-1] rounded-full w-[48px] h-[48px] bg-[#faff22]/20 absolute -right-4 top-[35%]"></div>
+              </div>
 
-          <div className="w-[311px] md:w-[679px] z-[6]">
-            <span className=" bg-gradient-to-r from-white/50 via-white to-white/50 bg-clip-text text-transparent font-ethno text-[34px]/[42.3px] md:text-[40px]/[48px]">Temukan Kelompok Mabim-mu</span>
-            <p className="z-[6] font-montserrat font-bold text-white md:text-xl md:mt-4">Cari dengan menuliskan nama lengkap kamu!</p>
+              <div className="flex gap-2 h-1 mt-3">
+                <div className="w-12 h-full bg-[#faff22]"></div>
+                <div className="w-4 h-full bg-[#0c7cfe]"></div>
+                <div className="w-2 h-full bg-[#FF3B30]"></div>
+              </div>
+              <p className="z-[6] font-trueno-regular text-white/50 md:text-xl mt-10">Cari dengan menuliskan NIM kamu!</p>
+              <Image src={blueStarOutline} alt="star" className="absolute -top-1 left-40 w-auto h-[28px] object-cover z-[-1]" />
+            </div>
+
+            <div className="w-full max-w-[343px] md:max-w-[680px] h-fit border-3   border-[#faff22] [clip-path:polygon(0_0,93%_0,100%_17%,100%_100%,0_100%)] flex flex-col items-start justify-between p-6 gap-5">
+              <div className="flex items-center gap-3">
+                <Image src={arrow} alt="ornament" className="w-[26px] h-[26px] object-cover" />
+                <p className="font-akira text-[#faff22] text-[12px] tracking-[2.64px]">Cari Kelompokmu</p>
+              </div>
+
+              <div className="w-full flex items-center justify-between">
+                <div className="z-[6] bg-[#012551] gap-[-8px] w-[70%]  py-3 px-4 border-[#008FFF]/35 border-2 flex items-center">
+                  <input
+                    type="text"
+                    placeholder="Ketik disini..."
+                    value={nim}
+                    onChange={(e) => setNim(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        if (nim.length > 0) {
+                          handleSearch();
+                        }
+                      }
+                    }}
+                    className="w-full outline-0 font-trueno-regular  text-[12px] placeholder:text-white/50 text-white md:text-xl"
+                  />
+                </div>
+
+                <button disabled={nim.length === 0} onClick={handleSearch} className="w-[25%]">
+                  <div className="bg-[#faff22] px-5 py-3 [clip-path:polygon(0_0,85%_0,100%_20%,100%_100%,0_100%)] hover:scale-105 transition-all duration-300 ease-in-out relative w-full h-full">
+                    <p className="font-trueno-regular text-[#001735] tracking-widest">Cari</p>
+                  </div>
+                </button>
+              </div>
+            </div>
           </div>
-
-          <div
-            className="z-[6] bg-white/20 gap-[-8px] w-[311px] md:w-[667px] md:h-[80px] py-3 px-4 border-[#a2a2a2] border-[0.3px] flex items-center 
-"
-          >
-            <input
-              type="text"
-              placeholder="Ketik disini..."
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  e.preventDefault();
-                  if (name.length > 0) {
-                    handleSearch();
-                  }
-                }
-              }}
-              className="w-full outline-0 font-montserrat font-bold text-[12px] placeholder:text-[#DAC2FF] text-white md:text-xl"
-            />
-          </div>
-
-          <Button title="Launch" disabled={name.length === 0} onClick={handleSearch} classN="md:w-[667px] md:h-[80px]" />
-        </div>
-      </BlurFade>
-      <Image src={Bg} alt="bg pattern" className="absolute sm:hidden left-20 top-5 opacity-[8%]  inset-0  w-full h-full object-cover z-[1] scale-[175%] bg-center" />{" "}
-      <div className="absolute -top-28 sm:hidden  bg-gradient-to-b from-[#010030] to-[#030096] w-full h-[234px] rounded-b-full blur-2xl"></div>
-      <div className="absolute bottom-0 w-full h-[200px]">
-        <Image src={Mascot} alt="mascot" className="absolute bottom-0 -left-8 w-[245px] h-[245px] z-[6] scale-150" />
-
-        <div className="w-[22px] h-[22px] bg-white absolute right-8 top-0"></div>
-        <div className="w-[22px] h-[22px] bg-[#AC8FDB] absolute right-13 top-6"></div>
-        <div className="w-[48px] h-[48px] bg-[#8166E3] absolute right-20 top-20"></div>
-        <div className="w-[22px] h-[22px] bg-white absolute right-0 bottom-5"></div>
+        </BlurFade>
       </div>
       <Dialog open={isNotFound} onOpenChange={setIsNotFound}>
         <DialogContent tabIndex={-1} className="">
@@ -212,6 +217,9 @@ export function KelompokSection() {
           </div>
         </DialogContent>
       </Dialog>
+
+      <Image src={yellowStar} alt="star" className="absolute top-10 -right-7 w-auto h-[120px] object-cover z-[-1]" />
+      <Image src={yellowStar} alt="star" className="absolute bottom-5 left-2 w-auto h-[46px] object-cover z-[-1]" />
     </section>
   );
 }

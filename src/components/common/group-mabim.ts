@@ -1,11 +1,11 @@
 import { type StaticImageData } from "next/image";
 import imgVanguard from "@/assets/mentors/imgVanguard.png";
-import imgArkadia from "@/assets/mentors/imgArkadia.png";
-import imgBeta from "@/assets/mentors/imgBeta.png";
+// import imgArkadia from "@/assets/mentors/imgArkadia.png";
+// import imgBeta from "@/assets/mentors/imgBeta.png";
 import imgNexus from "@/assets/mentors/imgNexus.png";
-import imgOmega from "@/assets/mentors/imgOmega.png";
+// import imgOmega from "@/assets/mentors/imgOmega.png";
 import imgApex from "@/assets/mentors/imgApex.png";
-import imgQuantum from "@/assets/mentors/imgQuantum.png";
+// import imgQuantum from "@/assets/mentors/imgQuantum.png";
 import imgAegis from "@/assets/mentors/imgAegis.png";
 import imgSerendipity from "@/assets/mentors/imgSerendipity.png";
 import imgObsidian from "@/assets/mentors/imgObsidian.png";
@@ -63,7 +63,7 @@ export const groupMabim: GroupMabim[] = [
     mentor: {
       name: "",
       phone: "+62",
-      image: imgArkadia,
+      image: imgVanguard,
       metadata: {
         skill: "",
         stats: 2,
@@ -85,7 +85,7 @@ export const groupMabim: GroupMabim[] = [
     mentor: {
       name: "",
       phone: "+62",
-      image: imgOmega,
+      image: imgVanguard,
       metadata: {
         skill: "",
         stats: 3,
@@ -129,7 +129,7 @@ export const groupMabim: GroupMabim[] = [
     mentor: {
       name: "",
       phone: "+62",
-      image: imgBeta,
+      image: imgVanguard,
       metadata: {
         skill: "",
         stats: 5,
@@ -195,7 +195,7 @@ export const groupMabim: GroupMabim[] = [
     mentor: {
       name: "",
       phone: "+62",
-      image: imgQuantum,
+      image: imgVanguard,
       metadata: {
         skill: "",
         stats: 8,

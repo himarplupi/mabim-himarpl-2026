@@ -16,7 +16,7 @@ import { BlurFade } from "../ui/blur-fade";
 
 export function HeroSection() {
   return (
-    <section className="text-start flex min-h-[950px]  h-screen w-full flex-col items-center justify-center  relative overflow-hidden px-4">
+    <section className="text-start flex min-h-[850px]  h-screen w-full flex-col items-center justify-center  relative overflow-hidden px-4">
       <div className="z-[5] w-full max-w-[343px] md:max-w-[680px] mb-[18px]">
         <BlurFade delay={0.25} inView className="">
           {/* Mobile Headline */}
@@ -30,8 +30,8 @@ export function HeroSection() {
             <div className="rounded-full bg-[#0C7CFE] border-4 border-[#FAFF22] flex flex-col items-center justify-center aspect-square w-[100px] h-[100px] relative">
               <p className="font-akira text-white text-2xl">20</p>
               <p className="font-akira text-white text-2xl">26</p>
-              <Image src={yellowStar} alt="star" className="absolute -bottom-4 -left-2 w-[56px] h-[56px] object-cover z-[-1]" />
-              <Image src={blueStarOutline} alt="star" className="absolute -top-10 right-20 w-[38px] h-[38px] object-cover z-[-1]" />
+              <Image src={yellowStar} alt="star" className="absolute -bottom-4 -left-2 w-auto h-[56px] object-cover z-[-1]" />
+              <Image src={blueStarOutline} alt="star" className="absolute -top-10 right-20 w-auto h-[38px] object-cover z-[-1]" />
             </div>
 
             <Image src={starBlue} alt="star" className="absolute -bottom-8 -left-28 w-[300px] h-[300px] object-cover z-[-1]" />
@@ -70,7 +70,7 @@ export function HeroSection() {
         </BlurFade>
       </div>
 
-      <Image src={cityScape2} alt="ornaments" className="sm:hidden absolute top-20 right-0 w-screen h-auto object-fill" />
+      <Image src={cityScape2} alt="ornaments" className="sm:hidden absolute top-0 right-0 w-screen h-auto object-fill" />
       <Image src={cityScape} alt="ornaments" className="hidden absolute top-0 right-0 w-screen h-auto object-fill" />
       <Image src={blueChain} alt="ornaments" className="absolute bottom-0 -left-0 rotate-[76deg] w-[32px] h-auto" />
     </section>
