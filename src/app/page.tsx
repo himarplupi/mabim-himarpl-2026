@@ -1,10 +1,10 @@
-// import { CountdownSection } from "@/components/common/countdown-section";
+import { CountdownSection } from "@/components/common/countdown-section";
 // import { FaqSection } from "@/components/common/faq-section";
 import { Footer } from "@/components/common/footer";
 import { GlobalFooter } from "@/components/common/global-footer";
 import { HeroSection } from "@/components/common/hero-section";
 import { KelompokSection } from "@/components/common/kelompok-section";
-// import { SponsorSection } from "@/components/common/sponsor-section";
+import { SponsorSection } from "@/components/common/sponsor-section";
 // import { TimelineSection } from "@/components/common/timeline-section";
 import React from "react";
 
@@ -16,20 +16,18 @@ export default function Home() {
       <HeroSection />
 
       <KelompokSection />
-      {/* 
+
       <CountdownSection />
 
-      <TimelineSection />
+      {/* <TimelineSection />
 
-      <FaqSection />
+      <FaqSection /> */}
 
-      <SponsorSection /> */}
+      <SponsorSection />
 
       <Footer />
 
       <GlobalFooter />
-
-      {/* ...existing page content... */}
     </main>
   );
 }

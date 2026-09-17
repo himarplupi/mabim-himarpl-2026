@@ -1,39 +1,39 @@
 "use client";
-import Bg from "@/assets/bg.svg";
 import Image from "next/image";
-import Orbit from "@/assets/ornaments/orbit.svg";
-import Mascot from "@/assets/mascots/shield.svg";
 import CountdownTimerTabs from "./countdown-timer";
-
-import { motion as Motion } from "motion/react";
+import yellowChain from "@/assets/ornaments/yellowChain.svg";
+import blueChain from "@/assets/ornaments/blueChain.svg";
+import yellowStarOutline from "@/assets/ornaments/yellowStarOutline.svg";
+import yellowStar from "@/assets/ornaments/yellowStar.svg";
+// import { motion as Motion } from "motion/react";
 import { BlurFade } from "../ui/blur-fade";
 export function CountdownSection() {
   return (
-    <section
-      id="countdown"
-      className="bg-[radial-gradient(101.34%_99.57%_at_50.02%_0.43%,#010030_7%,#7226FF_55%,#3243A6_100%)] text-center flex h-screen min-h-[680px] md:min-h-[812px] w-full flex-col items-center pt-[80px] md:pt-[120px] relative overflow-clip px-2 md:px-6"
-    >
-      <BlurFade inView delay={0.25 * 2}>
-        <h3 className="font-ethno text-white  z-[6] text-[28px] md:text-[40px]  mb-5">COUNTDOWN</h3>
-      </BlurFade>
-      <Image src={Bg} alt="bg pattern" className="absolute left-20 top-5 opacity-[8%]  inset-0  w-full sm:hidden h-full object-cover z-[1] scale-[175%] bg-center" />
+    <section id="countdown" className=" h-fit  w-full flex flex-col items-center  py-[80px] md:py-[120px] relative overflow-clip px-2 md:px-6">
+      <div className="w-full max-w-[343px] md:max-w-[680px] flex flex-col">
+        <BlurFade inView delay={0.25 * 2} className="mb-5">
+          <div className="flex flex-col gap-3">
+            <h3 className="font-akira text-white  z-[6] text-[28px] md:text-[40px]  ">COUNTDOWN</h3>
 
-      <BlurFade className="w-full z-10" inView delay={0.25 * 3}>
-        <div className="relative z-[10] w-full flex justify-center mt-4 md:mt-8">
-          <CountdownTimerTabs />
-        </div>
-      </BlurFade>
-      <div className="absolute bottom-0 w-full h-[280px] md:h-[365px]">
-        <Motion.div className="z-[2] rotate-[60deg] sm:-left-[500px] absolute bottom-0 hidden sm:block w-full h-full" animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 20, ease: "linear" }}>
-          <Image src={Orbit} alt="bg pattern" className="  w-full h-full  " />
-        </Motion.div>
+            <div className="flex gap-2 h-1 ">
+              <div className="w-12 h-full bg-[#0c7cfe]"></div>
+              <div className="w-4 h-full bg-[#0c7cfe]"></div>
+              <div className="w-2 h-full bg-[#FF3B30]"></div>
+            </div>
+          </div>
+        </BlurFade>
 
-        <div className="z-[2] rotate-[60deg] absolute bottom-0 sm:hidden -left-52 w-full h-full">
-          <Image src={Orbit} alt="bg pattern" className="  w-full h-full  " />
-        </div>
-        <Image src={Mascot} alt="mascot" className="absolute bottom-8 -right-6 md:bottom-10 md:-right-10 w-[180px] h-[180px] md:w-[245px] md:h-[245px] z-[6] scale-200" />
+        <BlurFade className="w-full z-10" inView delay={0.25 * 3}>
+          <div className="relative z-[10] w-full flex justify-center mt-9 ">
+            <CountdownTimerTabs />
+          </div>
+        </BlurFade>
       </div>
-      <div className="absolute -bottom-10 sm:hidden  bg-gradient-to-b from-[#030096] to-[#010030] w-[534px] h-[234px] rounded-full blur-2xl"></div>
+
+      <Image src={yellowChain} alt="ornament" className="absolute -top-56 -left-16 z-[-1] w-[45px] h-auto rotate-[120deg]" />
+      <Image src={blueChain} alt="ornament" className="absolute -bottom-10 right-16 z-[-1] w-auto h-[200px]" />
+      <Image src={yellowStarOutline} alt="ornament" className="absolute top-2 right-2 z-[-1] w-[60px] h-auto " />
+      <Image src={yellowStar} alt="ornament" className="absolute bottom-2 left-16 z-[-1] w-[36px] h-auto " />
     </section>
   );
 }

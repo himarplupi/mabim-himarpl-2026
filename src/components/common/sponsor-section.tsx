@@ -1,5 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
-import Marquee from "react-fast-marquee";
+// import Marquee from "react-fast-marquee";
 import { cn } from "@/lib/utils";
 import Dijait from "@/assets/sponsors/Dijait.png";
 import dapus from "@/assets/sponsors/DAPUS.jpeg";
@@ -18,6 +18,8 @@ import ss from "@/assets/sponsors/ss.png";
 import { BlurFade } from "../ui/blur-fade";
 import bgSponsor from "@/assets/ornaments/yellowMedpart.svg";
 import bgMedpart from "@/assets/ornaments/blueMedpart.svg";
+import yellowStar from "@/assets/ornaments/yellowStar.svg";
+import yellowStarOutline from "@/assets/ornaments/yellowStarOutline.svg";
 
 type SponsorMediaPartner = {
   name: string;
@@ -95,45 +97,58 @@ const secondRow = sponsorMediaPartners.slice(7);
 const SponsorMediaPartnerCard = ({ type, logo, size = "md" }: { type?: "sponsor" | "medpart"; logo: StaticImageData | null; size?: "md" | "lg" }) => {
   return (
     logo && (
-      <figure className={cn("relative flex  cursor-pointer items-center justify-center overflow-hidden object-center ", size === "lg" ? "h-40" : "h-24")}>
-        <Image src={type === "sponsor" ? bgSponsor : bgMedpart} alt="Sponsor or Media Partner Logo" className="h-full w-auto z-[-1]" />
-        <Image src={logo} alt="Sponsor or Media Partner Logo" className="h-[85%] w-auto" />
-      </figure>
+      <div className={cn("relative flex  cursor-pointer items-center justify-center object-center ", size === "lg" ? "h-[70px] w-[158px]" : "h-[50px]  w-[94px]")}>
+        <Image src={type === "sponsor" ? bgSponsor : bgMedpart} alt="Sponsor or Media Partner Logo" className="absolute  h-[100px] w-[188px]  z-[1]" />
+        <div className="relative z-[2] h-[40px] w-[128px] p-5">
+          <Image src={logo} alt="Sponsor or Media Partner Logo" fill className="object-contain" />
+        </div>
+      </div>
     )
   );
 };
 
 export function SponsorSection() {
   return (
-    <section className="text-center flex  min-h-[812px] w-full flex-col items-center pt-[220px] relative overflow-clip h-screen">
+    <section className="text-center flex  min-h-[830px] w-full flex-col items-center  relative overflow-clip h-fit py-24 bg-[#0A1C38]">
       <BlurFade inView delay={0.25 * 2}>
         <span className="  font-akira text-white text-[36px]/[36px]">
           Sponsor & <br /> Medpart
         </span>
       </BlurFade>
-      {/* <div className="mt-16 flex flex-row md:flex-col gap-4 items-center">
-      <div className="flex-col md:flex-row gap-4 flex items-center">
-        {
-          Array(3)
-          .fill(firstRow)
-          .flat()
-          .map((sponsorMediaPartner, idx) => (
-            <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} type="sponsor" />
-          ))
-        }
+      <BlurFade inView delay={0.25 * 3}>
+        <div className="mt-16 flex flex-row md:flex-col gap-4 items-start flex-wrap">
+          <div className="flex-col md:flex-row gap-8 flex items-center flex-wrap">
+            {Array(1)
+              .fill(firstRow)
+              .flat()
+              .map((sponsorMediaPartner, idx) => (
+                <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} type="sponsor" />
+              ))}
+          </div>
+          <div className="flex-col md:flex-row gap-8 flex items-center flex-wrap">
+            {Array(1)
+              .fill(secondRow)
+              .flat()
+              .map((sponsorMediaPartner, idx) => (
+                <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} type="sponsor" />
+              ))}
+          </div>
+        </div>
+      </BlurFade>
+
+      <div className="w-full max-w-[343px] md:max-w-[680px] flex items-center justify-center gap-2 mt-8">
+        <div className="bg-[#FFF200]/30 h-[1px] w-full"></div>
+        <Image src={yellowStar} alt="star" className=" w-[24px] h-[24px]" />
+        <Image src={yellowStar} alt="star" className=" w-[18px] h-[18px]" />
+        <Image src={yellowStar} alt="star" className=" w-[12px] h-[12px]" />
+        <Image src={yellowStar} alt="star" className=" w-[18px] h-[18px]" />
+        <Image src={yellowStar} alt="star" className=" w-[24px] h-[24px]" />
+
+        <div className="bg-[#FFF200]/30 h-[1px] w-full"></div>
       </div>
-      <div className="flex-col md:flex-row gap-4 flex items-center">
-        {
-          Array(3)
-          .fill(secondRow)
-          .flat()
-          .map((sponsorMediaPartner, idx) => (
-            <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} type="medpart" />
-          ))
-        }
-      </div>
-      </div> */}
-      <Marquee pauseOnHover direction="left" className="mt-16 z-[6]">
+      <Image src={yellowStar} alt="star" className=" w-[60px] h-[60px] absolute top-0 left-2" />
+      <Image src={yellowStarOutline} alt="star" className=" w-[40px] h-[40px] absolute bottom-2 right-2" />
+      {/* <Marquee pauseOnHover direction="left" className="mt-16 z-[6]">
         {Array(3)
           .fill(firstRow)
           .flat()
@@ -148,7 +163,7 @@ export function SponsorSection() {
           .map((sponsorMediaPartner, idx) => (
             <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} />
           ))}
-      </Marquee>{" "}
+      </Marquee>{" "} */}
     </section>
   );
 }
