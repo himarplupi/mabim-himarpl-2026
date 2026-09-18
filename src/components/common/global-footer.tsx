@@ -39,10 +39,6 @@ export function GlobalFooter() {
               Bintang
             </Link>
             {", "}
-            <Link href="https://github.com/rifamzhrlhq" target="_blank" className="font-trueno-bold font-semibold underline text-neutral-100">
-              Rifa
-            </Link>
-            {", "}
             <Link href="https://www.instagram.com/IlyassaPutra-png" target="_blank" className="font-trueno-bold font-semibold underline text-neutral-100">
               Ilyassa
             </Link>{" "}

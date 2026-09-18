@@ -9,8 +9,8 @@ import yellowStar from "@/assets/ornaments/yellowStar.svg";
 import { BlurFade } from "../ui/blur-fade";
 export function CountdownSection() {
   return (
-    <section id="countdown" className=" h-fit  w-full flex flex-col items-center  py-[80px] md:py-[120px] relative overflow-clip px-2 md:px-6">
-      <div className="w-full max-w-[343px] md:max-w-[680px] flex flex-col">
+    <section id="countdown" className=" h-[600px]  w-full flex flex-col items-center  py-[40px] md:py-[100px] relative overflow-clip px-2 md:px-6">
+      <div className="w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px] flex flex-col">
         <BlurFade inView delay={0.25 * 2} className="mb-5">
           <div className="flex flex-col gap-3">
             <h3 className="font-akira text-white  z-[6] text-[28px] md:text-[40px]  ">COUNTDOWN</h3>
@@ -23,8 +23,8 @@ export function CountdownSection() {
           </div>
         </BlurFade>
 
-        <BlurFade className="w-full max-w-[343px] md:max-w-[680px] z-10" inView delay={0.25 * 3}>
-          <div className="relative z-[10] w-full flex justify-center mt-9 ">
+        <BlurFade className="w-full  z-10" inView delay={0.25 * 3}>
+          <div className="relative z-[10] w-full flex items-center justify-center mt-9 ">
             <CountdownTimerTabs />
           </div>
         </BlurFade>

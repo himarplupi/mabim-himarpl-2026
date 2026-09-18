@@ -42,8 +42,8 @@ export function TimelineSection() {
     offset: ["start end", "center start"],
   });
   return (
-    <section id="timeline" className="flex  min-h-[812px] w-full flex-col relative overflow-clip items-center h-screen bg-[#0A1C38] pt-12">
-      <div className="w-full max-w-[343px] md:max-w-[680px]">
+    <section id="timeline" className="flex  min-h-[812px] w-full flex-col relative overflow-clip items-center h-screen bg-[#0A1C38] py-12">
+      <div className="w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px] flex flex-col md:items-center">
         <BlurFade inView delay={0.25 * 2} className="z-[6]">
           <div className="flex flex-col gap-3">
             <h3 className="font-akira text-white  z-[6] text-[28px] md:text-[40px]  ">Timeline</h3>
@@ -56,10 +56,11 @@ export function TimelineSection() {
           </div>
         </BlurFade>
 
-        <div ref={ref} className="relative w-full">
+        <div ref={ref} className="relative  mt-10 ">
           <Motion.div style={{ scaleY: scrollYProgress }} className="absolute left-0 top-0 w-[4px] h-full bg-[#faff22]/30 origin-top " />
+          {/* <Motion.div style={{ scaleX: scrollXProgress }} className="absolute left-0 top-0 h-[4px] w-full bg-[#faff22]/30 origin-left md:block hidden" /> */}
 
-          <ul className="z-[7] mt-10 w-full  flex flex-col gap-14">
+          <ul className="z-[7] w-full  flex flex-col  gap-14">
             {timeline.map((item, index) => {
               return (
                 <div key={index} className="relative">
@@ -112,7 +113,7 @@ interface TimelineItemComponentProps {
 
 function TimelineItem({ item, index }: TimelineItemComponentProps) {
   return (
-    <Motion.div key={index} initial={{ y: 50 }} whileInView={{ y: 0 }} transition={{ duration: 0.5, type: "spring" }} className="flex flex-col items-start  w-full flex-wrap  text-left ml-5">
+    <Motion.div key={index} initial={{ y: 50 }} whileInView={{ y: 0 }} transition={{ duration: 0.5, type: "spring" }} className="flex flex-col items-start  w-full flex-wrap  text-left ml-8">
       <div className="relative w-[126px] h-[31px] text-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="126" height="31" className="absolute  z-0" viewBox="0 0 126 31" fill="">
           <path d="M8 0H125.56L117.56 30.5H0L8 0Z" fill="#faff22" />

@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { PlusIcon } from "@radix-ui/react-icons";
-import Box from "@/assets/ornaments/box.svg";
-import Image from "next/image";
+// import Box from "@/assets/ornaments/box.svg";
+// import Image from "next/image";
 
 const faqs = [
   {
@@ -51,20 +51,27 @@ export function FAQAccordions() {
   const [activeIndex, setActiveIndex] = useState("");
 
   return (
-    <AccordionPrimitive.Root defaultValue="item-1" onValueChange={setActiveIndex} type="single" collapsible className="w-full max-w-4xl mx-auto px-6 font-trueno-bold text-white z-[6]">
-      {faqs.map((faq) => (
-        <AccordionPrimitive.Item value={faq.id} key={faq.id} className="accordionItem  overflow-hidden ">
+    <AccordionPrimitive.Root defaultValue="item-1" onValueChange={setActiveIndex} type="single" collapsible className="w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px]  font-trueno-bold text-white z-[6]">
+      {faqs.map((faq, i) => (
+        <AccordionPrimitive.Item
+          value={faq.id}
+          key={faq.id}
+          className="accordionItem  overflow-hidden border-t-2 border-[#FFF200]/20 last:border-[#FFF200]/20 last:border-b-2 font-trueno-bold w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px]"
+        >
           <AccordionPrimitive.Header className="flex">
-            <AccordionPrimitive.Trigger className="group flex flex-1 cursor-pointer items-center justify-between  px-4 py-3 text-left transition-all hover:scale-105">
-              {faq.question}
-              <div className="h-8 w-8 transition-all duration-300 ease-in-out border-4 border-[#FFF200] group-data-[state=open]:rotate-45  group-data-[state=open]:bg-[#FFF200]">
-                <PlusIcon className="h-4 w-4" />
+            <AccordionPrimitive.Trigger className="group flex flex-1 cursor-pointer items-center justify-between  px-4 py-3 text-left transition-all hover:scale-105 w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px]">
+              <p className="text-[#FFF200] ">{i + 1}</p>
+              <div className="w-[70%]">
+                <p>{faq.question}</p>
+              </div>
+              <div className="h-8 w-8 transition-all duration-300 ease-in-out border-[3px] border-[#FFF200] group-data-[state=open]:rotate-45  group-data-[state=open]:bg-[#FFF200] flex justify-center items-center">
+                <PlusIcon className="h-4 w-4 group-data-[state=open]:text-[#061B3A]" />
               </div>
             </AccordionPrimitive.Trigger>
           </AccordionPrimitive.Header>
 
-          <AccordionPrimitive.Content className="accordionContent data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden relative">
-            <Image src={Box} alt="ornament" className="absolute inset-0 h-full w-full " />
+          <AccordionPrimitive.Content className="accordionContent data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden relative px-4 py-2">
+            {/* <Image src={Box} alt="ornament" className="absolute inset-0 h-full w-full " /> */}
             <div className="text-sm">{faq.answer}</div>
           </AccordionPrimitive.Content>
         </AccordionPrimitive.Item>

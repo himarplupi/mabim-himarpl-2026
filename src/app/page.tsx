@@ -1,5 +1,5 @@
 import { CountdownSection } from "@/components/common/countdown-section";
-// import { FaqSection } from "@/components/common/faq-section";
+import { FaqSection } from "@/components/common/faq-section";
 import { Footer } from "@/components/common/footer";
 import { GlobalFooter } from "@/components/common/global-footer";
 import { HeroSection } from "@/components/common/hero-section";
@@ -21,7 +21,7 @@ export default function Home() {
 
       <TimelineSection />
 
-      {/* <FaqSection /> */}
+      <FaqSection />
 
       <SponsorSection />
 

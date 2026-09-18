@@ -116,8 +116,8 @@ export function SponsorSection() {
         </span>
       </BlurFade>
       <BlurFade inView delay={0.25 * 3}>
-        <div className="mt-16 flex flex-row md:flex-col gap-4 items-start flex-wrap">
-          <div className="flex-col md:flex-row gap-8 flex items-center flex-wrap">
+        <div className="mt-16 flex flex-row md:flex-col gap-x-4 gap-y-8 items-start justify-center w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px] flex-wrap">
+          <div className="flex-col md:flex-row gap-8 flex items-center justify-center flex-wrap">
             {Array(1)
               .fill(firstRow)
               .flat()
@@ -125,7 +125,7 @@ export function SponsorSection() {
                 <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} type="sponsor" />
               ))}
           </div>
-          <div className="flex-col md:flex-row gap-8 flex items-center flex-wrap">
+          <div className="flex-col md:flex-row gap-8 flex items-center justify-center flex-wrap">
             {Array(1)
               .fill(secondRow)
               .flat()

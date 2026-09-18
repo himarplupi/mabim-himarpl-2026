@@ -16,30 +16,29 @@ import { BlurFade } from "../ui/blur-fade";
 
 export function HeroSection() {
   return (
-    <section className="text-start flex min-h-[850px]  h-screen w-full flex-col items-center justify-center  relative overflow-hidden px-4">
-      <div className="z-[5] w-full max-w-[343px] md:max-w-[680px] mb-[18px]">
-        <BlurFade delay={0.25} inView className="">
-          {/* Mobile Headline */}
-          <div className="  z-[5]  flex gap-2  items-start relative">
-            <div className="flex flex-col ">
-              <h1 className="font-akira text-white text-[52px]/[48px] [text-shadow:6px_6px_0_#082B5C] ">
-                MABIM
-                <FlashingText text="RPL" flashesCount={10} flashLength={100} className=" text-[#FAFF22]  [text-shadow:6px_6px_0_#082B5C]" />
-              </h1>
-            </div>
-            <div className="rounded-full bg-[#0C7CFE] border-4 border-[#FAFF22] flex flex-col items-center justify-center aspect-square w-[100px] h-[100px] relative">
-              <p className="font-akira text-white text-2xl">20</p>
-              <p className="font-akira text-white text-2xl">26</p>
-              <Image src={yellowStar} alt="star" className="absolute -bottom-4 -left-2 w-auto h-[56px] object-cover z-[-1]" />
-              <Image src={blueStarOutline} alt="star" className="absolute -top-10 right-20 w-auto h-[38px] object-cover z-[-1]" />
-            </div>
-
-            <Image src={starBlue} alt="star" className="absolute -bottom-8 -left-28 w-[300px] h-[300px] object-cover z-[-1]" />
+    <section className="text-start flex min-h-[850px]  h-screen w-full flex-col items-center justify-center  relative overflow-hidden px-4 pt-8">
+      <BlurFade delay={0.25} inView className="mb-[18px] z-[5] w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px]">
+        {/* Mobile Headline */}
+        <div className="    flex gap-2  items-start relative w-full  justify-between">
+          <div className="flex flex-col ">
+            <h1 className="font-akira text-white text-[52px]/[48px] [text-shadow:6px_6px_0_#082B5C] ">
+              MABIM
+              <FlashingText text="RPL" flashesCount={10} flashLength={100} className=" text-[#FAFF22]  [text-shadow:6px_6px_0_#082B5C]" />
+            </h1>
           </div>
-        </BlurFade>
-      </div>
+          <div className="rounded-full bg-[#0C7CFE] border-4 border-[#FAFF22] flex flex-col items-center justify-center aspect-square w-[100px] h-[100px] relative">
+            <p className="font-akira text-white text-2xl">20</p>
+            <p className="font-akira text-white text-2xl">26</p>
+            <Image src={yellowStar} alt="star" className="absolute -bottom-4 -left-2 w-auto h-[56px] object-cover z-[-1]" />
+            <Image src={blueStarOutline} alt="star" className="absolute -top-10 right-20 w-auto h-[38px] object-cover z-[-1]" />
+          </div>
+
+          <Image src={starBlue} alt="star" className="absolute -bottom-8 -left-28 w-[300px] h-[300px] object-cover z-[-1]" />
+        </div>
+      </BlurFade>
+
       {/* Description */}
-      <div className="w-full max-w-[343px] md:max-w-[680px]  z-[6]">
+      <div className="w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px]  z-[6]">
         <BlurFade delay={0.25 * 2} inView className="flex flex-col gap-3">
           <div className="w-full h-[75px] border-3 border-l-[6px]  border-[#faff22] [clip-path:polygon(0_0,100%_0,100%_0,97%_100%,0_100%)] flex items-start justify-center px-[18px] py-3 flex-col mb-[18px]">
             <h4 className="font-trueno-black text-[#faff22] text-base">Wingbyte Generations:</h4>
@@ -50,7 +49,7 @@ export function HeroSection() {
           </p>
         </BlurFade>
       </div>
-      <div className="w-full max-w-[343px] md:max-w-[680px]">
+      <div className="w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px] mt-8">
         <BlurFade delay={0.25 * 3} inView className="z-[5]">
           <div className="flex flex-col w-full max-w-[343px] md:max-w-[680px] relative items-start justify-center gap-4  z-[5] ">
             <Link href="" target="_blank">
@@ -71,7 +70,7 @@ export function HeroSection() {
       </div>
 
       <Image src={cityScape2} alt="ornaments" className="sm:hidden absolute top-0 right-0 w-screen h-auto object-fill" />
-      <Image src={cityScape} alt="ornaments" className="hidden absolute top-0 right-0 w-screen h-auto object-fill" />
+      <Image src={cityScape} alt="ornaments" className="hidden sm:block absolute -top-20 right-0 w-screen h-auto object-fill" />
       <Image src={blueChain} alt="ornaments" className="absolute bottom-0 -left-0 rotate-[76deg] w-[32px] h-auto" />
     </section>
   );

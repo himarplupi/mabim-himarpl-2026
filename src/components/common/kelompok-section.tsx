@@ -49,7 +49,7 @@ export function KelompokSection() {
 
   return (
     <section id="kelompok" className=" flex max-h-[600px] h-screen w-full flex-col items-center  relative overflow-hidden bg-[#0A1C38] pt-32 [clip-path:polygon(100%_0,100%_0,100%_100%,0%_100%,0_15%)]">
-      <div className="w-full max-w-[343px] md:max-w-[680px]">
+      <div className="w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px]">
         <BlurFade delay={0.25 * 2} inView className="z-[6]">
           <div className="relative flex flex-col gap-6 z-[6] mb-7">
             <div className="w-[311px] md:w-[679px] z-[6] relative">
@@ -70,7 +70,7 @@ export function KelompokSection() {
               <Image src={blueStarOutline} alt="star" className="absolute -top-1 left-40 w-auto h-[28px] object-cover z-[-1]" />
             </div>
 
-            <div className="w-full max-w-[343px] md:max-w-[680px] h-fit border-3   border-[#faff22] [clip-path:polygon(0_0,93%_0,100%_17%,100%_100%,0_100%)] flex flex-col items-start justify-between p-6 gap-5">
+            <div className="w-full  h-fit border-3   border-[#faff22] [clip-path:polygon(0_0,93%_0,100%_17%,100%_100%,0_100%)] flex flex-col items-start justify-between p-6 gap-5">
               <div className="flex items-center gap-3">
                 <Image src={arrow} alt="ornament" className="w-[26px] h-[26px] object-cover" />
                 <p className="font-akira text-[#faff22] text-[12px] tracking-[2.64px]">Cari Kelompokmu</p>
