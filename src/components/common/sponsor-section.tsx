@@ -130,7 +130,7 @@ export function SponsorSection() {
               .fill(secondRow)
               .flat()
               .map((sponsorMediaPartner, idx) => (
-                <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} type="sponsor" />
+                <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} type="medpart" />
               ))}
           </div>
         </div>

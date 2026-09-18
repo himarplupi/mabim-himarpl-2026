@@ -5,7 +5,7 @@ import { GlobalFooter } from "@/components/common/global-footer";
 import { HeroSection } from "@/components/common/hero-section";
 import { KelompokSection } from "@/components/common/kelompok-section";
 import { SponsorSection } from "@/components/common/sponsor-section";
-// import { TimelineSection } from "@/components/common/timeline-section";
+import { TimelineSection } from "@/components/common/timeline-section";
 import React from "react";
 
 export const dynamic = "force-static";
@@ -19,9 +19,9 @@ export default function Home() {
 
       <CountdownSection />
 
-      {/* <TimelineSection />
+      <TimelineSection />
 
-      <FaqSection /> */}
+      {/* <FaqSection /> */}
 
       <SponsorSection />
 

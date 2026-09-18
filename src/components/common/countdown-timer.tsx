@@ -7,7 +7,7 @@ import yellowStar from "@/assets/ornaments/yellowStar.svg";
 import blueSquare from "@/assets/ornaments/blueSquare.svg";
 
 const events = [
-  { label: "TM", short: "TM", date: "2026-09-26" },
+  { label: "TM", short: "TM", date: "2026-09-27" },
   { label: "Day 1", short: "D-I", date: "2026-10-03" },
   { label: "Day 2", short: "D-II", date: "2026-10-04" },
   { label: "Day 3", short: "D-III", date: "2026-10-17" },
@@ -18,7 +18,7 @@ export default function CountdownTimerTabs() {
   const [activeTab, setActiveTab] = useState(0);
   return (
     <section className="flex flex-col items-center w-full">
-      <div className="flex justify-center md:gap-2 mb-6 w-full  border-[3px] border-[#faff22]  overflow-x-scroll scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <div className="flex justify-center md:gap-2 mb-6 w-full  border-[3px] border-[#faff22]  overflow-x-scroll scrollbar-hide ![&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {events.map((event, idx) => (
           <button
             key={event.label}
@@ -57,17 +57,16 @@ function ExpiredNotice() {
   return (
     <div className="flex flex-col items-center justify-center gap-7 w-full">
       <div className="w-full max-w-[343px] md:max-w-[680px] overflow-visible flex items-center justify-center gap-2 ">
-        <div className="bg-[#FFF200]/30 h-[1px] w-full"></div>
+        <div className="bg-[#faff22]/30 h-[1px] w-full"></div>
         <Image src={yellowStar} alt="star" className=" w-[18px] h-[18px]" />
         <Image src={blueSquare} alt="ornament" className="w-[10px] h-[10px]" />
 
         <Image src={yellowStar} alt="star" className=" w-[18px] h-[18px]" />
 
-        <div className="bg-[#FFF200]/30 h-[1px] w-full"></div>
+        <div className="bg-[#faff22]/30 h-[1px] w-full"></div>
       </div>
       <div className=" py-4 px-5 relative ">
-        {/* <div className="absolute left-0 top-0 h-[6px] w-full bg-[#faff22] [clip-path:polygon(10%_0,100%_0,100%_100%,6%_100%)]" /> */}
-        <div className="absolute left-0 top-0 h-[6px] w-full bg-[#FFFF00] [clip-path:polygon(4%_0,100%_0,100%_100%,3%_100%)]" />
+        <div className="absolute left-0 top-0 h-[6px] w-full bg-[#faff22] [clip-path:polygon(4%_0,100%_0,100%_100%,3%_100%)]" />
 
         <p className="text-[10px] md:text-2xl text-[#faff22] font-trueno-bold tracking-[2.3px] uppercase">Event Telah Selesai</p>
         <div className="absolute bottom-0 left-0 h-[6px] w-full bg-[#faff22] [clip-path:polygon(0_0,97%_0,96%_100%,0%_100%)]" />

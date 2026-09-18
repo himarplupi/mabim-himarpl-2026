@@ -1,57 +1,101 @@
 "use client";
 import Image from "next/image";
-import Bg from "@/assets/bg.svg";
-import OrnamentPattern from "@/assets/ornaments/Pattern.svg";
 import { useScroll, motion as Motion } from "motion/react";
 import { useRef } from "react";
 import { BlurFade } from "../ui/blur-fade";
+import yellowStar from "@/assets/ornaments/yellowStar.svg";
+import blueStarOutline from "@/assets/ornaments/blueStarOutline.svg";
+
 const timeline = [
   {
-    date: "2025-10-04",
+    date: "2026-09-10",
     title: "Technical Meeting",
     desc: "",
   },
   {
-    date: "2025-10-12",
-    title: "Day-I",
+    date: "2026-10-03",
+    title: "Day - I",
     desc: "",
   },
   {
-    date: "2025-10-18",
-    title: "Day-II",
+    date: "2026-10-04",
+    title: "Day - II",
     desc: "",
   },
   {
-    date: "2025-10-19",
-    title: "Day-III",
+    date: "2026-10-17",
+    title: "Day - III",
     desc: "",
   },
   {
-    date: "2025-11-02",
-    title: "Day-IV",
+    date: "2026-10-25",
+    title: "Day - IV",
     desc: "",
   },
 ];
 
 export function TimelineSection() {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center start"],
+  });
   return (
-    <section
-      id="timeline"
-      className="bg-[radial-gradient(101.34%_99.57%_at_50.02%_100%,#010030_7%,#7226FF_55%,#3243A6_100%)] sm:bg-[radial-gradient(101.34%_99.57%_at_50.02%_100%,#010030_7%,#7226FF_55%,#3243A6_100%)]
- text-center flex  min-h-[812px] w-full flex-col items-center pt-[104px] relative overflow-clip h-screen"
-    >
-      <BlurFade inView delay={0.25 * 2} className="z-[6]">
-        <h3 className="font-ethno text-white text-[32px] z-[6]">TIMELINE</h3>
-      </BlurFade>
-      <ul className="z-[7] mt-10">
-        {timeline.map((item, index) => {
-          const nextDate = timeline[index + 1]?.date;
-          return <TimelineItem item={item} key={index} index={index} curDate={new Date()} nextDate={nextDate} />;
-        })}
-      </ul>
-      <Image src={Bg} alt="bg pattern" className="absolute left-20 top-5 opacity-[8%]  inset-0 sm:hidden w-full h-full object-cover z-[1] scale-[175%] bg-center" />{" "}
-      <Image src={OrnamentPattern} alt="ornaments" className="absolute top-0 rotate-[320deg] w-full h-fit z-[1] sm:hidden scale-[350%]" />
-      <div className="absolute -top-14 sm:hidden  bg-gradient-to-b from-[#010030] to-[#030096] w-[534px] h-[234px] rounded-full blur-2xl z-[2] opacity-90"></div>
+    <section id="timeline" className="flex  min-h-[812px] w-full flex-col relative overflow-clip items-center h-screen bg-[#0A1C38] pt-12">
+      <div className="w-full max-w-[343px] md:max-w-[680px]">
+        <BlurFade inView delay={0.25 * 2} className="z-[6]">
+          <div className="flex flex-col gap-3">
+            <h3 className="font-akira text-white  z-[6] text-[28px] md:text-[40px]  ">Timeline</h3>
+
+            <div className="flex gap-2 h-1 ">
+              <div className="w-12 h-full bg-[#faff22]"></div>
+              <div className="w-4 h-full bg-[#0c7cfe]"></div>
+              <div className="w-2 h-full bg-[#FF3B30]"></div>
+            </div>
+          </div>
+        </BlurFade>
+
+        <div ref={ref} className="relative w-full">
+          <Motion.div style={{ scaleY: scrollYProgress }} className="absolute left-0 top-0 w-[4px] h-full bg-[#faff22]/30 origin-top " />
+
+          <ul className="z-[7] mt-10 w-full  flex flex-col gap-14">
+            {timeline.map((item, index) => {
+              return (
+                <div key={index} className="relative">
+                  <div className="absolute -left-2.5 top-0 h-6 w-6 rotate-45">
+                    <svg width="24" height="24" viewBox="0 0 24 24" className="absolute inset-0">
+                      <Motion.rect
+                        x="1"
+                        y="1"
+                        width="22"
+                        height="22"
+                        fill="none"
+                        stroke={index % 2 === 0 ? "#faff22" : "#0C7CFE"}
+                        strokeWidth="1"
+                        style={{
+                          pathLength: scrollYProgress,
+                        }}
+                      />
+                    </svg>
+
+                    <div
+                      className="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 border-[3px] border-[#001735]"
+                      style={{
+                        backgroundColor: index % 2 === 0 ? "#faff22" : "#0C7CFE",
+                      }}
+                    />
+                  </div>
+                  <TimelineItem item={item} index={index} />
+                </div>
+              );
+            })}
+          </ul>
+          <Image src={blueStarOutline} alt="star" className="absolute top-0 right-8 w-auto h-[24px] object-cover " />
+        </div>
+      </div>
+
+      <Image src={yellowStar} alt="ornament" className="absolute top-4 right-4  w-[80px] h-auto " />
     </section>
   );
 }
@@ -64,97 +108,24 @@ interface TimelineItemProps {
 interface TimelineItemComponentProps {
   item: TimelineItemProps;
   index: number;
-  curDate: Date;
-  nextDate?: string;
 }
 
-function TimelineItem({ item, index, curDate, nextDate }: TimelineItemComponentProps) {
-  const isFutureDate = curDate.getTime() < new Date(item.date).getTime();
-  const ref = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center start"],
-  });
+function TimelineItem({ item, index }: TimelineItemComponentProps) {
   return (
-    <div key={index} ref={ref} className="flex items-start gap-6">
-      <div className="flex items-center justify-center flex-col">
-        {isFutureDate ? (
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <path d="M6.66663 21.9459L15.7751 28L24.6666 21.9459L24.6666 9.62162L15.7751 4L6.66663 9.62162L6.66663 21.9459Z" stroke="url(#paint1_linear_463_244)" strokeWidth="0.428571" />
-            <defs>
-              <linearGradient id="paint1_linear_463_244" x1="15.6666" y1="28" x2="15.6666" y2="4" gradientUnits="userSpaceOnUse">
-                <stop stopColor="white" stopOpacity="0.5" />
-                <stop offset="0.5" stopColor="white" />
-                <stop offset="1" stopColor="white" stopOpacity="0.5" />
-              </linearGradient>
-            </defs>
-          </svg>
-        ) : (
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <path d="M8.80945 19.9099L15.784 24.5715L22.738 19.9099L22.738 11.7896L15.784 7.42868L8.80945 11.7896L8.80945 19.9099Z" fill="url(#paint0_linear_463_244)" />
-            <path d="M6.66663 21.9459L15.7751 28L24.6666 21.9459L24.6666 9.62162L15.7751 4L6.66663 9.62162L6.66663 21.9459Z" stroke="url(#paint1_linear_463_244)" strokeWidth="0.428571" />
-            <defs>
-              <linearGradient id="paint0_linear_463_244" x1="15.7737" y1="24.5715" x2="15.7737" y2="7.42868" gradientUnits="userSpaceOnUse">
-                <stop stopColor="white" stopOpacity="0.5" />
-                <stop offset="0.5" stopColor="white" />
-                <stop offset="1" stopColor="white" stopOpacity="0.5" />
-              </linearGradient>
-              <linearGradient id="paint1_linear_463_244" x1="15.6666" y1="28" x2="15.6666" y2="4" gradientUnits="userSpaceOnUse">
-                <stop stopColor="white" stopOpacity="0.5" />
-                <stop offset="0.5" stopColor="white" />
-                <stop offset="1" stopColor="white" stopOpacity="0.5" />
-              </linearGradient>
-            </defs>
-          </svg>
-        )}
-        <Motion.div className="flex flex-col items-center origin-top h-auto min-h-24  w-fit md:w-12" style={{ scaleY: scrollYProgress }}>
-          <svg width="12" height="12" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="fadeGradient" x1="1" y1="0" x2="0" y2="0">
-                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.5" />
-                <stop offset="50%" stopColor="#FFFFFF" stopOpacity="1" />
-                <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.5" />
-              </linearGradient>
-            </defs>
-            <g transform="rotate(180, 100, 100)">
-              <path d="M 0 0 H 200 V 200 L 100 150 L 0 200 Z" fill={isFutureDate ? "none" : "url(#fadeGradient)"} stroke="#D9D9D9" strokeWidth="2" strokeOpacity={isFutureDate ? "0.5" : "2"} />
-            </g>
-          </svg>
-
-          {nextDate ? (
-            <div className={`w-[12px] h-[60px] ${isFutureDate ? "border border-[#D9D9D9]" : "bg-[linear-gradient(to_right,rgba(255,255,255,0.5)_0%,rgba(255,255,255,1)_50%,rgba(255,255,255,0.5)_100%)]"} shadow-md`} />
-          ) : (
-            <div className={`w-[12px] h-[60px] ${isFutureDate ? "border border-[#D9D9D9]" : "bg-[linear-gradient(to_right,rgba(255,255,255,0.5)_0%,rgba(255,255,255,1)_50%,rgba(255,255,255,0.5)_100%)]"} shadow-md`} />
-          )}
-
-          <svg width="12" height="12" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="fadeGradient" x1="100" y1="0" x2="0" y2="0">
-                <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.5" />
-                <stop offset="50%" stopColor="#FFFFFF" stopOpacity="1" />
-                <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.5" />
-              </linearGradient>
-            </defs>
-            <path d="M 0 0 H 200 V 200 L 100 150 L 0 200 Z" fill={isFutureDate ? "none" : "url(#fadeGradient)"} stroke="#D9D9D9" strokeWidth="2" strokeOpacity={isFutureDate ? "0.5" : "1"} />
-          </svg>
-        </Motion.div>
+    <Motion.div key={index} initial={{ y: 50 }} whileInView={{ y: 0 }} transition={{ duration: 0.5, type: "spring" }} className="flex flex-col items-start  w-full flex-wrap  text-left ml-5">
+      <div className="relative w-[126px] h-[31px] text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="126" height="31" className="absolute  z-0" viewBox="0 0 126 31" fill="">
+          <path d="M8 0H125.56L117.56 30.5H0L8 0Z" fill="#faff22" />
+        </svg>
+        <span className=" text-[#001735] font-akira relative text-[8px]/[16.5px] z-[10] tracking-[2px]">
+          {new Date(item.date).toLocaleDateString("id-ID", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+          })}
+        </span>
       </div>
-      <Motion.div initial={{ y: 50 }} whileInView={{ y: 0 }} transition={{ duration: 0.5, type: "spring" }} className="flex">
-        <div className="flex flex-col text-left font-semibold">
-          <span className="bg-gradient-to-r from-white/50 via-white to-white/50 bg-clip-text text-transparent font-ethno text-[24px]/[32px]">
-            {new Date(item.date).toLocaleDateString("id-ID", {
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            })}
-          </span>
-          <li className="text-[16px] text-white [text-shadow:0_0_8px_#99AC8FDB] font-jumbo">{item.title}</li>
-        </div>
-        <div>
-          <li className="ml-5 h-auto w-auto pb-10 pt-2 text-left text-neutral-600 md:text-lg">{item.desc}</li>
-        </div>
-      </Motion.div>
-    </div>
+      <li className="text-[22px]/[33px] text-white [text-shadow:0_0_8px_#082B5C] font-akira relative ">{item.title}</li>
+    </Motion.div>
   );
 }
