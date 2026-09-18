@@ -11,7 +11,7 @@ const events = [
   { label: "Day 1", short: "D-I", date: "2026-10-03" },
   { label: "Day 2", short: "D-II", date: "2026-10-04" },
   { label: "Day 3", short: "D-III", date: "2026-10-17" },
-  { label: "Day 4", short: "D-IV", date: "0000-00-00" },
+  { label: "Day 4", short: "D-IV", date: "2026-10-25" },
 ];
 
 export default function CountdownTimerTabs() {
@@ -48,7 +48,7 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
 
   return (
     <Motion.div initial={{ scale: 0.7, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring", stiffness: 120, damping: 12 }} className="flex items-center justify-center w-full">
-      <div className="w-full flex items-center justify-center ">{isExpired ? <ExpiredNotice /> : <ShowCounter days={days} hours={hours} minutes={minutes} seconds={seconds} />}</div>
+      <div className="w-full flex items-center justify-center ">{isExpired ? <ExpiredNotice /> : <ShowCounter days={days} hours={hours} minutes={minutes} />}</div>
     </Motion.div>
   );
 }
@@ -56,7 +56,7 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
 function ExpiredNotice() {
   return (
     <div className="flex flex-col items-center justify-center gap-7 w-full">
-      <div className="w-full max-w-[343px] md:max-w-[680px] overflow-visible flex items-center justify-center gap-2 mt-8">
+      <div className="w-full max-w-[343px] md:max-w-[680px] overflow-visible flex items-center justify-center gap-2 ">
         <div className="bg-[#FFF200]/30 h-[1px] w-full"></div>
         <Image src={yellowStar} alt="star" className=" w-[18px] h-[18px]" />
         <Image src={blueSquare} alt="ornament" className="w-[10px] h-[10px]" />
@@ -76,7 +76,7 @@ function ExpiredNotice() {
   );
 }
 
-function ShowCounter({ days, hours, minutes, seconds }: { days?: number; hours?: number; minutes?: number; seconds?: number }) {
+function ShowCounter({ days, hours, minutes }: { days?: number; hours?: number; minutes?: number }) {
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
     setIsClient(true);
@@ -85,30 +85,30 @@ function ShowCounter({ days, hours, minutes, seconds }: { days?: number; hours?:
     return null;
   }
   return (
-    <div className="flex items-center justify-center gap-0 md:gap-2 w-[360px]">
+    <div className="flex items-center justify-between  w-full">
       <DateTimeDisplay value={days} type="Hari" />
       <Separator />
       <DateTimeDisplay value={hours} type="Jam" />
       <Separator />
       <DateTimeDisplay value={minutes} type="Menit" />
-      <Separator />
-      <DateTimeDisplay value={seconds} type="Detik" />
     </div>
   );
 }
 
+// h-20 w-6 md:h-28 md:w-10 lg:h-36 lg:w-14
 function Separator() {
   return (
-    <div className="flex flex-col items-center justify-center gap-2 md:gap-3 h-20 w-6 md:h-28 md:w-10 lg:h-36 lg:w-14">
+    <div className="flex flex-col items-center justify-center gap-2 md:gap-3 w-full h-auto">
       <span className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#2F6FFA]" />
       <span className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#2F6FFA]" />
     </div>
   );
 }
 
+// w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36
 function CornerBox({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative flex items-center justify-center w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 bg-[#082B5C]/50">
+    <div className="relative flex items-center justify-center w-full h-auto aspect-square bg-[#082B5C]/50">
       <span className="absolute top-0 left-0 w-4 h-4 md:w-6 md:h-6 border-t-[3px] border-l-[3px] border-[#FAFF22]" />
       <span className="absolute top-0 right-0 w-4 h-4 md:w-6 md:h-6 border-t-[3px] border-r-[3px] border-[#FAFF22]" />
       <span className="absolute bottom-0 left-0 w-4 h-4 md:w-6 md:h-6 border-b-[3px] border-l-[3px] border-[#2F6FFA]" />
@@ -122,7 +122,7 @@ function DateTimeDisplay({ value, type }: { value?: number; type: string }) {
   const displayValue = (value ?? 0) < 10 ? `0${value}` : `${value}`;
 
   return (
-    <div className="flex flex-col items-center justify-center gap-2 w-16 md:w-24 ">
+    <div className="flex flex-col items-center justify-center gap-2 w-full ">
       <CornerBox>
         <AnimatePresence mode="popLayout">
           <Motion.span
@@ -137,7 +137,7 @@ function DateTimeDisplay({ value, type }: { value?: number; type: string }) {
           </Motion.span>
         </AnimatePresence>
       </CornerBox>
-      <span className="font-akira text-base md:text-lg lg:text-xl lowercase opacity-80 text-[#0C7CFE] tracking-[2.8px]">{type}</span>
+      <span className="font-akira text-[10px] md:text-lg lg:text-xl lowercase opacity-80 text-[#0C7CFE] tracking-[2.8px]">{type}</span>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export function CountdownSection() {
           </div>
         </BlurFade>
 
-        <BlurFade className="w-full z-10" inView delay={0.25 * 3}>
+        <BlurFade className="w-full max-w-[343px] md:max-w-[680px] z-10" inView delay={0.25 * 3}>
           <div className="relative z-[10] w-full flex justify-center mt-9 ">
             <CountdownTimerTabs />
           </div>
@@ -31,7 +31,7 @@ export function CountdownSection() {
       </div>
 
       <Image src={yellowChain} alt="ornament" className="absolute -top-56 -left-16 z-[-1] w-[45px] h-auto rotate-[120deg]" />
-      <Image src={blueChain} alt="ornament" className="absolute -bottom-10 right-16 z-[-1] w-auto h-[200px]" />
+      <Image src={blueChain} alt="ornament" className="absolute -bottom-10 right-16 z-[-1] w-auto h-[200px] rotate-[100deg]" />
       <Image src={yellowStarOutline} alt="ornament" className="absolute top-2 right-2 z-[-1] w-[60px] h-auto " />
       <Image src={yellowStar} alt="ornament" className="absolute bottom-2 left-16 z-[-1] w-[36px] h-auto " />
     </section>
