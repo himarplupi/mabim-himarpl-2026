@@ -111,7 +111,7 @@ export function KelompokSection() {
       </div>
       <Dialog open={isNotFound} onOpenChange={setIsNotFound}>
         <DialogContent tabIndex={-1} className="border-4 border-[#FF0000] bg-[#FF0000] py-2 [clip-path:polygon(0_0,90%_0,100%_10%,100%_100%,0_100%)]">
-          <DialogTitle className="font-akira text-center py-6 w-full flex items-center justify-center gap-8 ">
+          <DialogTitle className="font-akira text-center p-6 w-full flex items-center justify-center gap-8">
             <div className="w-14 h-14 bg-white rotate-45 flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="4" height="16" viewBox="0 0 4 16" fill="none" className="-rotate-45">
                 <path d="M0 0H4V11.5H0V0Z" fill="#FF0000" />
@@ -123,20 +123,20 @@ export function KelompokSection() {
 
           <div className="text-center p-6 flex flex-col justify-between items-center relative w-full bg-black text-white md:text-3xl text-base uppercase gap-8 ">
             <div className="flex gap-3 items-center justify-between w-full">
-              <Image src={light} alt="ornament" className="w-full h-auto" />
+              <Image src={light} alt="ornament" className="min-w-0 flex-1 h-auto" />
               <Image src={redStar} alt="ornament" className="w-[14px] h-[14px]" />
               <Image src={redStar} alt="ornament" className="w-[8px] h-[8px]" />
               <Image src={redStar} alt="ornament" className="w-[14px] h-[14px]" />
-              <Image src={light} alt="ornament" className="w-full h-auto rotate-180" />
+              <Image src={light} alt="ornament" className="min-w-0 h-auto flex-1 rotate-180" />
             </div>
             <span className="font-trueno-bold ">
               NIM yang kamu masukkan <span className="text-[#ff0000] tracking-[2.55px]">salah!</span> Harap masukkan NIM yang benar dan lengkap.
             </span>
 
             <span className=" relative flex justify-between w-full items-center gap-2">
-              <Image src={light2} alt="ornament" className="w-full h-auto" />
+              <Image src={light2} alt="ornament" className="min-w-0 flex-1 h-auto" />
               <GlitchText text="Anonymous" className="font-akira text-[#ff0000]" />
-              <Image src={light2} alt="ornament" className="w-full h-auto rotate-180" />
+              <Image src={light2} alt="ornament" className="min-w-0 flex-1 h-auto rotate-180" />
             </span>
 
             <div className="border-t-[3px] border-l-[3px] border-[#ff0000] absolute top-2 left-2 w-4 h-4"></div>
@@ -151,7 +151,7 @@ export function KelompokSection() {
         </DialogContent>
       </Dialog>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent tabIndex={-1} className="">
+        <DialogContent tabIndex={-1} className="w-[343px] sm:w-[351px] lg:scale-110">
           <Image src={mentorCard} alt="ornament" className="z-[9] w-[343px] h-auto sm:w-[351px] sm:h-[545px]" />
           <div className="absolute w-[351px] h-[545px] z-10">
             <div className="absolute top-[50px] left-[152px] rotate-[-11deg] ">
@@ -174,7 +174,7 @@ export function KelompokSection() {
             <div className="absolute sm:top-[360.5px] top-[352px] sm:right-[103.5px] right-[105px] w-[18px] h-[18px] flex items-center justify-center">
               <p className="font-montserrat text-white text-[12px] font-medium ">{group?.mentor.metadata.stats}</p>
             </div>
-            <div className="absolute sm:top-[360.5px] top-[352px] sm:right-[38px] right-[41px] w-[57px] h-[18px]  flex items-center justify-center flex-wrap bg-red-500">
+            <div className="absolute sm:top-[360.5px] top-[352px] sm:right-[38px] right-[41px] w-[57px] h-[18px]  flex items-center justify-center flex-wrap ">
               <p className="font-montserrat text-white  text-[8px]/[8px] font-medium wrap-break-word text-center ">{group?.mentor.metadata.skill}</p>
             </div>
 
@@ -184,7 +184,7 @@ export function KelompokSection() {
               <Image src={contactBtn} alt={"btn"} className="w-auto h-auto hover:scale-105 hover:-rotate-6 duration-500 transition-all ease-in-out" />
             </Link>
 
-            <div className="absolute sm:bottom-[20px] bottom-[30px] left-1/2 -translate-x-1/2 w-[296px] h-[63px] flex items-center justify-center flex-wrap bg-red-500/40">
+            <div className="absolute sm:bottom-[20px] bottom-[30px] left-1/2 -translate-x-1/2 w-[296px] h-[63px] flex items-center justify-center flex-wrap">
               <p className="font-trueno-regular text-white text-[12px]/[12px] wrap-break-word  text-center ">{group?.mentor.metadata.description}</p>
             </div>
           </div>

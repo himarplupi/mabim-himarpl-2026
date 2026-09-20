@@ -42,7 +42,7 @@ export function GlobalFooter() {
             <Link href="https://www.instagram.com/IlyassaPutra-png" target="_blank" className="font-trueno-bold font-semibold underline text-neutral-100">
               Ilyassa
             </Link>{" "}
-            <span className="font-trueno-bold font-semibold text-neutral-100">(As an UI/UX Designer)</span>. Supported by Department{" "}
+            <span className="font-trueno-bold font-semibold text-neutral-100">(As a UI/UX Designer)</span>. Supported by Department{" "}
             <a href="https://himarpl.org/be/kominfo" target="_blank" className="font-trueno-bold font-semibold hover:underline text-neutral-100" rel="noopener noreferrer">
               KOMINFO
             </a>

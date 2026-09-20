@@ -49,7 +49,7 @@ export function HeroSection() {
           </p>
         </BlurFade>
       </div>
-      <div className="w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px] mt-8">
+      <div className="w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px] mt-8 hidden">
         <BlurFade delay={0.25 * 3} inView className="z-[5]">
           <div className="flex flex-col w-full max-w-[343px] md:max-w-[680px] relative items-start justify-center gap-4  z-[5] ">
             <Link href="" target="_blank">

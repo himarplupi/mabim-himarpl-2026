@@ -94,7 +94,7 @@ const SponsorMediaPartnerCard = ({ type, logo, size = "md" }: { type?: "sponsor"
 
 export function SponsorSection() {
   return (
-    <section className="text-center flex  min-h-[830px] w-full flex-col items-center  relative overflow-clip h-fit py-24 bg-[#0A1C38]">
+    <section className="text-center flex   w-full flex-col items-center  relative overflow-clip h-fit py-24 bg-[#0A1C38]">
       <BlurFade inView delay={0.25 * 2}>
         <span className="  font-akira text-white text-[36px]/[36px]">
           Sponsor & <br /> Medpart
@@ -110,7 +110,7 @@ export function SponsorSection() {
                 <SponsorMediaPartnerCard size="lg" key={sponsorMediaPartner.name + idx} logo={sponsorMediaPartner.logo} type="sponsor" />
               ))}
           </div>
-          <div className="flex-col md:flex-row gap-8 flex items-center justify-center flex-wrap">
+          <div className="flex-col md:flex-row gap-8  items-center justify-center flex-wrap hidden">
             {Array(1)
               .fill(secondRow)
               .flat()
