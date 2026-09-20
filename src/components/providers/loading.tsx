@@ -32,7 +32,7 @@ export function Loading({ children }: { children: React.ReactNode }) {
   }, [soundBg]);
 
   const handlePlaySound = () => {
-    const audio = new Audio("/assets/sound.mp3");
+    const audio = new Audio("/assets/sound.mpeg");
     setSoundBg(audio);
   };
 
@@ -45,90 +45,43 @@ export function Loading({ children }: { children: React.ReactNode }) {
 
       <AnimatePresence mode="wait">
         {(!isSoundPlaying || isLoading) && (
-          <Motion.div key="loader" className="fixed inset-0 z-[9999] flex h-screen flex-col items-center justify-center gap-y-4 bg-[#010030]" exit={{ opacity: 0 }} transition={{ duration: 0.5 }} onClick={handlePlaySound}>
-            <Motion.svg width="200" height="200" viewBox="0 0 801 801" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#8A2BE2" />
-                  <stop offset="100%" stopColor="#00CFFF" />
-                </linearGradient>
-                <linearGradient id="paint5_linear" x1="400.824" y1="0.824707" x2="400.824" y2="800.825" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#9C27FF" />
-                  <stop offset="1" stopColor="#00E5FF" />
-                </linearGradient>
-              </defs>
-              {/* buletan tengah */}
-              <Motion.circle cx="400.824" cy="400.825" r="50" fill="url(#grad)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }} />
-              {/* next buletan */}
-
-              {/* kotak-kotak di buletan kedua */}
-              <Motion.g
-                initial={{ scale: 0, rotate: 0 }}
-                animate={{ scale: 1, rotate: -360 }}
-                transition={{ scale: { duration: 0.6, ease: "easeOut", delay: 0.3 }, rotate: { repeat: Infinity, duration: 20, ease: "linear" } }}
-                style={{ transformOrigin: "400.5px 400.5px" }}
-              >
-                <circle cx="400.824" cy="400.825" r="156" stroke="url(#grad)" strokeWidth="10" />
-                <path d="M396.824 270.825L393.324 247.825C486.124 238.625 536.658 312.991 550.324 351.325L530.824 358.325C496.324 273.825 424.991 265.991 396.824 270.825Z" fill="url(#grad)" />
-                <path d="M406.324 530.325L409.824 553.325C317.024 562.525 266.491 488.158 252.824 449.825L272.324 442.825C306.824 527.325 378.158 535.158 406.324 530.325Z" fill="url(#grad)" />
-              </Motion.g>
-
-              {/* buletan ketiga */}
-              <Motion.g
-                initial={{ scale: 0, rotate: 0 }}
-                animate={{ scale: 1, rotate: 360 }}
-                transition={{ scale: { duration: 0.6, ease: "easeOut", delay: 0.5 }, rotate: { repeat: Infinity, duration: 20, ease: "linear" } }}
-                style={{ transformOrigin: "400.5px 400.5px" }}
-              >
-                <path d="M303.016 169.013L312.324 187.825C275.324 199.325 244.646 230.637 229.824 244.825L214.435 230.123C240.997 199.57 283.253 176.079 303.016 169.013Z" fill="url(#grad)" stroke="url(#grad)" strokeWidth="2" />
-                <circle cx="400.824" cy="400.825" r="230" stroke="url(#grad)" strokeWidth="2" />
-              </Motion.g>
-              {/* buletan keempat */}
-              <Motion.g
-                initial={{ scale: 0, rotate: 0 }}
-                animate={{ scale: 1, rotate: -360 }}
-                transition={{ scale: { duration: 0.6, ease: "easeOut", delay: 0.7 }, rotate: { repeat: Infinity, duration: 20, ease: "linear" } }}
-                style={{ transformOrigin: "400.5px 400.5px" }}
-              >
-                <path d="M124.324 403.325C126.991 489.825 186.224 666.425 401.824 680.825" stroke="url(#grad)" strokeWidth="2" />
-                <path d="M679.324 400.325C676.658 313.825 617.424 137.225 401.824 122.825" stroke="url(#grad)" strokeWidth="2" />
-                <path d="M143.324 542.825L160.324 533.325C174.324 564.125 208.324 599.325 223.324 613.325L209.324 627.825C177.324 603.025 151.491 562.158 143.324 542.825Z" fill="url(#grad)" stroke="url(#grad)" strokeWidth="2" />
-              </Motion.g>
-              {/* buletan kelima */}
-              <Motion.g
-                initial={{ scale: 0, rotate: 0 }}
-                animate={{ scale: 1, rotate: 360 }}
-                transition={{ scale: { duration: 0.6, ease: "easeOut", delay: 0.9 }, rotate: { repeat: Infinity, duration: 20, ease: "linear" } }}
-                style={{ transformOrigin: "400.5px 400.5px" }}
-              >
-                <path d="M668.847 604.728L654.824 593.325C684.824 556.825 696.106 524.032 703.324 504.825L722.237 511.29C711.522 550.332 683.602 589.803 668.847 604.728Z" fill="url(#grad)" stroke="url(#grad)" strokeWidth="2" />
-                <Motion.circle cx="400.824" cy="400.825" r="319" stroke="url(#grad)" strokeWidth="5" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.7 }} />
-              </Motion.g>
-
-              {/* garis */}
+          <Motion.div key="loader" className="fixed inset-0 z-[9999] flex h-screen flex-col items-center justify-center gap-y-4 bg-[#001735]" exit={{ opacity: 0 }} transition={{ duration: 0.5 }} onClick={handlePlaySound}>
+            <Motion.svg width="284" height="270" viewBox="0 0 284 270" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ overflow: "visible" }}>
               <Motion.g
                 initial={{ rotate: 0 }}
                 animate={{ rotate: 360 }}
-                transition={{ scale: { duration: 0.6, ease: "easeOut", delay: 1 }, rotate: { repeat: Infinity, duration: 20, ease: "linear" } }}
-                style={{ transformOrigin: "400.5px 400.5px" }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 20,
+                  ease: "linear",
+                }}
               >
                 <Motion.path
-                  d="M400.824 0.824707V800.825"
-                  stroke="url(#paint5_linear)"
-                  strokeWidth="2"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M173.135 159.186L220.354 123.386L161.11 122.179L141.655 66.208L122.2 122.179L62.9561 123.386L110.176 159.186L93.0166 215.902L141.655 182.057L190.294 215.902L173.135 159.186ZM141.662 168.814L112.479 189.122L122.774 155.092L94.4434 133.612L129.989 132.888L141.662 99.3057L153.336 132.888L188.882 133.612L160.55 155.092L170.846 189.122L141.662 168.814Z"
+                  fill="#FAFF22"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  transition={{ duration: 1, ease: "easeInOut" }}
-                  style={{ transformOrigin: "400.5px 400.5px" }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "backOut",
+                  }}
+                  style={{
+                    transformOrigin: "141.655px 141.055px",
+                  }}
                 />
                 <Motion.path
-                  d="M800.824 400.825H0.824232"
-                  stroke="url(#paint5_linear)"
-                  strokeWidth="2"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M198.321 167.359L283.315 102.921L176.678 100.747L141.658 0L106.638 100.747L0 102.921L84.9941 167.359L54.1084 269.449L141.658 208.527L229.207 269.449L198.321 167.359ZM141.659 195.293L73.5654 242.678L97.5879 163.273L31.4805 113.155L114.422 111.465L141.659 33.1055L168.896 111.465L251.838 113.155L185.73 163.273L209.753 242.678L141.659 195.293Z"
+                  fill="#FAFF22"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  transition={{ duration: 1, ease: "easeInOut" }}
-                  style={{ transformOrigin: "400.5px 400.5px" }}
+                  transition={{ duration: 0.5, ease: "backOut", delay: 0.3 }}
+                  style={{
+                    transformOrigin: "141.6575px 134.7245px",
+                  }}
                 />
               </Motion.g>
             </Motion.svg>
