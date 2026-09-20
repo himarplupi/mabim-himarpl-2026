@@ -21,7 +21,7 @@ export function HeroSection() {
         {/* Mobile Headline */}
         <div className="    flex gap-2  items-start relative w-full  justify-between">
           <div className="flex flex-col ">
-            <h1 className="font-akira text-white text-[52px]/[48px] [text-shadow:6px_6px_0_#082B5C] ">
+            <h1 className="font-akira text-white text-[52px]/[48px] md:text-[64px]/[60px] [text-shadow:6px_6px_0_#082B5C] ">
               MABIM
               <FlashingText text="RPL" flashesCount={10} flashLength={100} className=" text-[#FAFF22]  [text-shadow:6px_6px_0_#082B5C]" />
             </h1>

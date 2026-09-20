@@ -23,7 +23,7 @@ export default function CountdownTimerTabs() {
           <button
             key={event.label}
             onClick={() => setActiveTab(idx)}
-            className={`relative min-w-[70px] font-akira tracking-[1.5px] md:min-w-[100px] flex items-center w-full justify-center px-1 md:px-4 py-2 font-bold text-[12px] md:text-base  transition-all duration-300 border-none outline-none cursor-pointer focus:outline-none ${activeTab === idx ? "bg-[#FAFF22] text-[#001735]" : "bg-transparent text-[#E5E5E5]"}`}
+            className={`relative min-w-[70px] font-akira tracking-[1.5px] md:min-w-[100px] flex items-center w-full justify-center px-1 md:px-4 py-2 font-bold text-[12px] md:text-base  transition-all ease-in-out hover:bg-[#969900] duration-300 border-none outline-none cursor-pointer focus:outline-none ${activeTab === idx ? "bg-[#FAFF22] text-[#001735]" : "bg-transparent text-[#E5E5E5]"}`}
           >
             <span className="">{event.short}</span>
           </button>

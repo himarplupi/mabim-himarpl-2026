@@ -1,7 +1,7 @@
 import Image, { type StaticImageData } from "next/image";
 // import Marquee from "react-fast-marquee";
 import { cn } from "@/lib/utils";
-import Dijait from "@/assets/sponsors/Dijait.png";
+import tjoejahit from "@/assets/sponsors/tjoejahit.png";
 import dapus from "@/assets/sponsors/DAPUS.jpeg";
 import fokus from "@/assets/sponsors/fokus.png";
 import hmve from "@/assets/sponsors/HMVE.png";
@@ -9,12 +9,10 @@ import pgsd from "@/assets/sponsors/pgsd.png";
 import tekkom from "@/assets/sponsors/tekkom.png";
 import pedia from "@/assets/sponsors/pedia.png";
 import perslima from "@/assets/sponsors/PERSLIMA.png";
-import kanght from "@/assets/sponsors/kanght.png";
+import amale from "@/assets/sponsors/Amale Kitchen Logo-1 2.png";
 import rekapstore from "@/assets/sponsors/rekapstore.png";
-import dicoding from "@/assets/sponsors/dicoding.png";
-import oppa from "@/assets/sponsors/oppa.png";
-import omg from "@/assets/sponsors/OMG.png";
-import ss from "@/assets/sponsors/ss.png";
+import wancincau from "@/assets/sponsors/WanCincau 2.png";
+import warungbara from "@/assets/sponsors/Warung Bara Logo 3.png";
 import { BlurFade } from "../ui/blur-fade";
 import bgSponsor from "@/assets/ornaments/yellowMedpart.svg";
 import bgMedpart from "@/assets/ornaments/blueMedpart.svg";
@@ -28,37 +26,24 @@ type SponsorMediaPartner = {
 
 const sponsorMediaPartners: SponsorMediaPartner[] = [
   {
-    name: "Dicoding",
-    logo: dicoding,
+    name: "Amale Kitchen",
+    logo: amale,
   },
   {
-    name: "Oppa",
-    logo: oppa,
+    name: "WanCincau",
+    logo: wancincau,
   },
   {
-    name: "Dijait",
-    logo: Dijait,
+    name: "Warung Bara",
+    logo: warungbara,
   },
   {
-    name: "KANGHT",
-    logo: kanght,
+    name: "Tjoejahit",
+    logo: tjoejahit,
   },
   {
     name: "Rekap Store",
     logo: rekapstore,
-  },
-  {
-    name: "SS",
-    logo: ss,
-  },
-  {
-    name: "OMG",
-    logo: omg,
-  },
-
-  {
-    name: "dpm",
-    logo: omg,
   },
   {
     name: "hmve",
@@ -91,8 +76,8 @@ const sponsorMediaPartners: SponsorMediaPartner[] = [
   },
 ];
 
-const firstRow = sponsorMediaPartners.slice(0, 7);
-const secondRow = sponsorMediaPartners.slice(7);
+const firstRow = sponsorMediaPartners.slice(0, 5);
+const secondRow = sponsorMediaPartners.slice(5);
 
 const SponsorMediaPartnerCard = ({ type, logo, size = "md" }: { type?: "sponsor" | "medpart"; logo: StaticImageData | null; size?: "md" | "lg" }) => {
   return (

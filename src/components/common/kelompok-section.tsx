@@ -6,14 +6,18 @@ import Gun from "@/assets/gun.svg";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/Dialog";
 import { type GroupMabim, groupMabim, type Mentee } from "@/components/common/group-mabim";
 import arrow from "@/assets/ornaments/arrow.svg";
-import { motion as Motion } from "motion/react";
-
-import { SiWhatsapp } from "@icons-pack/react-simple-icons";
+// import { motion as Motion } from "motion/react";
+import light from "@/assets/ornaments/light.svg";
+import light2 from "@/assets/ornaments/light2.svg";
+import redStar from "@/assets/ornaments/redStar.svg";
 import Link from "next/link";
 import { GlitchText } from "../ui/glitch-effects";
 import { BlurFade } from "../ui/blur-fade";
 import yellowStar from "@/assets/ornaments/yellowStar.svg";
 import blueStarOutline from "@/assets/ornaments/blueStarOutline.svg";
+import mentorCard from "@/assets/ornaments/mentorCard.svg";
+import bgMentorCard from "@/assets/ornaments/bgMentorCard.svg";
+import contactBtn from "@/assets/ornaments/contactBtn.svg";
 
 export function KelompokSection() {
   const lenis = useLenis();
@@ -106,115 +110,94 @@ export function KelompokSection() {
         </BlurFade>
       </div>
       <Dialog open={isNotFound} onOpenChange={setIsNotFound}>
-        <DialogContent tabIndex={-1} className="">
-          <DialogTitle className="font-ethno text-center py-6 bg-[#680000]/40 w-full border border-[#FF0000] relative shadow-[inset_0_0_37px_0_#FF0000] backdrop-blur-[56px] ">
-            <span className="bg-radial-[at_50%_50%] from-white to-[#B90808] bg-clip-text text-transparent text-2xl md:text-[55px]">Error</span>
-
-            <Motion.div
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-              className="absolute bg-[#A11515] md:w-9 md:h-9 w-4 h-4 md:top-6 md:left-12 top-3 left-5"
-            ></Motion.div>
-            <Motion.div
-              animate={{ x: [0, -3, 0] }}
-              transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-              className="absolute bg-[#702929] md:w-[55px] w-6 h-6 md:h-[55px] md:bottom-3 md:left-32 bottom-1.5 left-14"
-            ></Motion.div>
-            <Motion.div
-              animate={{ x: [0, 6, 0] }}
-              transition={{ duration: 6, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-              className="absolute bg-[#790000] md:w-8 md:h-8 w-3 h-3 md:top-4 md:left-[238px] top-[7px] left-[102px]"
-            ></Motion.div>
-            <Motion.div
-              animate={{ x: [0, 4, 0] }}
-              transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-              className="absolute bg-[#C60000] md:w-12 md:h-0.5 w-5 h-[1px] m:top-5 md:left-64 top-2 left-[109px]"
-            ></Motion.div>
-            <Motion.div
-              animate={{ y: [0, 2, 0] }}
-              transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-              className="absolute bg-[#C74343] md:w-5 md:h-5 w-2 h-2 md:bottom-2 md:left-80 bottom-1 left-[137px]"
-            ></Motion.div>
-            <Motion.div
-              animate={{ x: [0, 3, 0] }}
-              transition={{ duration: 5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-              className="absolute bg-[#721717] md:w-16 md:h-16 w-7 h-7  md:top-3 md:right-10 top-2 right-[18px]"
-            ></Motion.div>
-            <Motion.div
-              animate={{ x: [0, 7, 0] }}
-              transition={{ duration: 5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-              className="absolute bg-[#E60808] md:w-[72px] w-8 h-0.5 md:top-11 md:right-[79px] top-5 right-8"
-            ></Motion.div>
+        <DialogContent tabIndex={-1} className="border-4 border-[#FF0000] bg-[#FF0000] py-2 [clip-path:polygon(0_0,90%_0,100%_10%,100%_100%,0_100%)]">
+          <DialogTitle className="font-akira text-center py-6 w-full flex items-center justify-center gap-8 ">
+            <div className="w-14 h-14 bg-white rotate-45 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="4" height="16" viewBox="0 0 4 16" fill="none" className="-rotate-45">
+                <path d="M0 0H4V11.5H0V0Z" fill="#FF0000" />
+                <path d="M0 16V13H4V16H0Z" fill="#FF0000" />
+              </svg>
+            </div>
+            <span className="text-3xl md:text-[55px] text-white">Error</span>
           </DialogTitle>
 
-          <div className="my-9 text-center p-6 flex flex-col justify-between bg-[#680000]/40 w-full border border-[#FF0000]  shadow-[inset_0_0_37px_0_#FF0000] backdrop-blur-[56px] text-white md:text-3xl text-base uppercase gap-8">
-            <span className="font-montserrat  relative">
-              Nama yang kamu masukkan salah! harap masukkan nama yang benar dengan nama lengkap.
-              <span className="absolute inset-0 text-red-500 blur-sm  mix-blend-multiply">Nama yang kamu masukkan salah! harap masukkan nama yang benar dengan nama lengkap.</span>
+          <div className="text-center p-6 flex flex-col justify-between items-center relative w-full bg-black text-white md:text-3xl text-base uppercase gap-8 ">
+            <div className="flex gap-3 items-center justify-between w-full">
+              <Image src={light} alt="ornament" className="w-full h-auto" />
+              <Image src={redStar} alt="ornament" className="w-[14px] h-[14px]" />
+              <Image src={redStar} alt="ornament" className="w-[8px] h-[8px]" />
+              <Image src={redStar} alt="ornament" className="w-[14px] h-[14px]" />
+              <Image src={light} alt="ornament" className="w-full h-auto rotate-180" />
+            </div>
+            <span className="font-trueno-bold ">
+              NIM yang kamu masukkan <span className="text-[#ff0000] tracking-[2.55px]">salah!</span> Harap masukkan NIM yang benar dan lengkap.
             </span>
 
-            <span className="font-jumbo relative">
-              <GlitchText text="- Anonymous -" className="font-jumbo" />
+            <span className=" relative flex justify-between w-full items-center gap-2">
+              <Image src={light2} alt="ornament" className="w-full h-auto" />
+              <GlitchText text="Anonymous" className="font-akira text-[#ff0000]" />
+              <Image src={light2} alt="ornament" className="w-full h-auto rotate-180" />
             </span>
+
+            <div className="border-t-[3px] border-l-[3px] border-[#ff0000] absolute top-2 left-2 w-4 h-4"></div>
+            <div className="border-t-[3px] border-l-[3px] border-[#ff0000] absolute top-2 right-2 w-4 h-4 rotate-90"></div>
+            <div className="border-t-[3px] border-l-[3px] border-[#ff0000] absolute bottom-2 right-2 w-4 h-4 rotate-180"></div>
+            <div className="border-t-[3px] border-l-[3px] border-[#ff0000] absolute bottom-2 left-2 w-4 h-4 -rotate-90"></div>
           </div>
 
           <DialogDescription className="font-mono text-center py-6 bg-[#680000]/40 w-full border border-[#FF0000] relative shadow-[inset_0_0_37px_0_#FF0000] backdrop-blur-[56px]" hidden>
             im mysterious
           </DialogDescription>
-          <span className="text-white md:text-base text-sm [text-shadow:0_0_8px_#680000]">Tekan di bagian yang kosong untuk menutup</span>
         </DialogContent>
       </Dialog>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent
-          tabIndex={-1}
-          className="bg-[radial-gradient(circle_at_center_bottom,_#8166e3_0%,_rgba(1,0,48,0.4)_100%)]   overflow-hidden py-7 border border-[#8166E3] md:px-0 px-6 backdrop-blur-[150px] h-full shadow-[0_0_150px_rgba(172,143,219,0.4)]"
-        >
+        <DialogContent tabIndex={-1} className="">
+          <Image src={mentorCard} alt="ornament" className="z-[9] w-[343px] h-auto sm:w-[351px] sm:h-[545px]" />
+          <div className="absolute w-[351px] h-[545px] z-10">
+            <div className="absolute top-[50px] left-[152px] rotate-[-11deg] ">
+              <span className="font-montserrat text-[15px]  z-10  text-white font-bold ">{`Group ${group?.id}`}</span>
+            </div>
+
+            <div className="absolute top-[340px] sm:top-[350px] left-12">
+              <span className="font-trueno-bold text-[20px] text-[#faff22] drop-shadow-[0_-1px_2.6px_#298CFE] absolute z-10 ">{group?.name}</span>
+            </div>
+
+            <div className="absolute left-1/2 -translate-x-1/2 top-[115px] text-center">
+              <span className="font-trueno-bold text-white    text-[8px] uppercase">
+                {mentee?.id} {mentee?.name}
+              </span>
+            </div>
+            <p className="font-trueno-bold text-2xl break-words absolute sm:bottom-[105px] bottom-[115px] left-[52px] text-white">{group?.mentor.name}</p>
+            <div className="absolute sm:top-[360.5px] top-[352px] sm:right-[130.5px] right-[130px] w-[18px] h-[18px] flex items-center justify-center">
+              <Image src={Gun} alt={"Gun"} className=" w-auto h-auto  z-10" />
+            </div>
+            <div className="absolute sm:top-[360.5px] top-[352px] sm:right-[103.5px] right-[105px] w-[18px] h-[18px] flex items-center justify-center">
+              <p className="font-montserrat text-white text-[12px] font-medium ">{group?.mentor.metadata.stats}</p>
+            </div>
+            <div className="absolute sm:top-[360.5px] top-[352px] sm:right-[38px] right-[41px] w-[57px] h-[18px]  flex items-center justify-center flex-wrap bg-red-500">
+              <p className="font-montserrat text-white  text-[8px]/[8px] font-medium wrap-break-word text-center ">{group?.mentor.metadata.skill}</p>
+            </div>
+
+            <p className="font-trueno-bold text-2xl break-words absolute sm:bottom-[105px] bottom-[115px] left-[52px] text-white">{group?.mentor.name}</p>
+
+            <Link href={`https://wa.me/${group?.mentor.phone}`} target="_blank" className="absolute right-10 sm:bottom-[102px] bottom-[112px]">
+              <Image src={contactBtn} alt={"btn"} className="w-auto h-auto hover:scale-105 hover:-rotate-6 duration-500 transition-all ease-in-out" />
+            </Link>
+
+            <div className="absolute sm:bottom-[20px] bottom-[30px] left-1/2 -translate-x-1/2 w-[296px] h-[63px] flex items-center justify-center flex-wrap bg-red-500/40">
+              <p className="font-trueno-regular text-white text-[12px]/[12px] wrap-break-word  text-center ">{group?.mentor.metadata.description}</p>
+            </div>
+          </div>
+          <div className="absolute w-[351px] h-[545px] z-[8] ">
+            {group?.mentor?.image && (
+              <Image src={group?.mentor?.image} alt={group?.mentor?.name} className="h-[280px] w-auto object-scale-down object-bottom drop-shadow-[0_0_30px_rgba(1,109,237)] absolute top-[68px] left-1/2 -translate-x-1/2 " />
+            )}
+          </div>
+          <div className="absolute w-[351px] h-[545px] z-[7]">
+            <Image src={bgMentorCard} alt="ornament" className="" width={351} height={545} />
+          </div>
+
           <DialogTitle hidden>sst</DialogTitle>
-          <DialogDescription hidden>im mysterious</DialogDescription>
-          <div className="flex w-full flex-col items-center justify-center text-center text-white">
-            <span className="font-ethno text-[21px]">{`Group ${group?.id}`}</span>
-            <span className="font-montserrat font-medium">{group?.name}</span>
-            <span className="font-montserrat font-bold">
-              {mentee?.id} - {mentee?.name}
-            </span>
-          </div>
-
-          <div className="relative max-w-[688px] mb-6 w-full h-full border-r border-l border-[#B789FF]">
-            <div className="absolute -bottom-32 left-0 right-0 -z-10 flex justify-center">
-              {group?.mentor?.image && <Image src={group?.mentor?.image} alt={group?.mentor?.name} className="h-[550px] w-full object-scale-down object-bottom drop-shadow-[0_0_30px_rgba(114,38,255)]" />}
-            </div>
-          </div>
-          <div className="bg-[linear-gradient(60deg,rgba(1,0,48,0.8)0%,rgba(2,0,99,0.6)50%,rgba(1,0,48,0.8)100%)] border border-[#B789FF] max-w-[688px] w-full flex flex-col gap-5  md:p-6 p-2 backdrop-blur-[73px]">
-            <div className="flex flex-col gap-5">
-              <div className="flex justify-between h-[52px] gap-4">
-                <div className="flex flex-col gap-2 ">
-                  <p className="font-ethno bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent text-[14px] break-words">{group?.mentor.name}</p>
-                  <div className="flex gap-2">
-                    <div className="border border-[#AC8FDB] bg-radial from-[#7226FF] to-[#010030] p-0.5 w-[18px] h-[18px]">
-                      <Image src={Gun} alt={"Gun"} />
-                    </div>
-                    <div className="border border-[#AC8FDB] bg-radial from-[#7226FF] to-[#010030] w-[18px] h-[18px] flex items-center justify-center">
-                      <p className="font-montserrat text-white text-[12px] font-medium">{group?.mentor.metadata.stats}</p>
-                    </div>
-                    <div className="border border-[#AC8FDB] bg-radial from-[#7226FF] to-[#010030] px-[6px] h-[18px] flex items-center justify-center">
-                      <p className="font-montserrat text-white md:text-[12px] text-[8px] font-medium whitespace-nowrap">{group?.mentor.metadata.skill}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <Link
-                  href={`https://wa.me/${group?.mentor.phone}`}
-                  target="_blank"
-                  className="flex-grow h-full max-h-[52px] bg-[linear-gradient(90deg,rgba(1,0,48,0.8)0%,rgba(2,0,99,0.6)50%,rgba(1,0,48,0.8)100%)] border border-[#AC8FDB] flex items-center justify-center p-1.5 gap-1.5"
-                >
-                  <SiWhatsapp className="w-6 h-6" color="#FFFFFF" />
-                  <span className="font-montserrat bg-gradient-to-b from-white to-[#999999] bg-clip-text text-transparent font-bold">Contact</span>
-                </Link>
-              </div>
-            </div>
-
-            <p className="font-montserrat text-white md:text-base text-[12px]">{group?.mentor.metadata.description}</p>
-          </div>
         </DialogContent>
       </Dialog>
 

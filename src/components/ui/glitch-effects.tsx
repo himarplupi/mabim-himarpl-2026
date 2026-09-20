@@ -10,13 +10,13 @@ interface GlitchTextProps {
 
 export const GlitchText: React.FC<GlitchTextProps> = ({ text, className }) => {
   return (
-    <div className={cn("relative text-2xl font-bold", className)}>
+    <div className={cn("relative text-sm font-bold", className)}>
       {/* Base text */}
       <span className="relative z-10">{text}</span>
 
       {/* Red offset */}
       <Motion.span
-        className="absolute top-0 sm:left-[35%] left-0 text-red-500 mix-blend-screen"
+        className="absolute top-0 sm:left-[35%] left-0 text-green-500 mix-blend-screen"
         initial={{ x: 0 }}
         animate={{
           x: [0, -3, 3, -1, 0],

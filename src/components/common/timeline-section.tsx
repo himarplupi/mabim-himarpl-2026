@@ -8,7 +8,7 @@ import blueStarOutline from "@/assets/ornaments/blueStarOutline.svg";
 
 const timeline = [
   {
-    date: "2026-09-10",
+    date: "2026-09-27",
     title: "Technical Meeting",
     desc: "",
   },
