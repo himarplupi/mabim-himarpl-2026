@@ -13,8 +13,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Mabim RPL 2025",
-  description: "Masa Bimbingan Rekayasa Perangkat Lunak 2025",
+  title: "MABIM RPL 2026",
+  description: "Masa Bimbingan Rekayasa Perangkat Lunak 2026",
   icons: [{ rel: "icon", url: "/icon.svg" }],
 };
 
