@@ -37,9 +37,9 @@ export function KelompokSection() {
 
   const handleSearch = () => {
     const cleanNim = nim.toLowerCase().trim();
-    const currentGroup = groupMabim.find((group) => group.mentees.some((mentee) => mentee.nim.toLowerCase() === cleanNim));
+    const currentGroup = groupMabim.find((group) => group.mentees.some((mentee) => mentee.nim.toLowerCase() === cleanNim || mentee.name.toLowerCase() === cleanNim));
     if (currentGroup) {
-      const currentMentee = currentGroup.mentees.find((mentee) => mentee.nim.toLowerCase() === cleanNim);
+      const currentMentee = currentGroup.mentees.find((mentee) => mentee.nim.toLowerCase() === cleanNim || mentee.name.toLowerCase() === cleanNim);
       setIsNotFound(false);
       setGroup(currentGroup);
       setMentee(currentMentee);
@@ -70,7 +70,7 @@ export function KelompokSection() {
                 <div className="w-4 h-full bg-[#0c7cfe]"></div>
                 <div className="w-2 h-full bg-[#FF3B30]"></div>
               </div>
-              <p className="z-[6] font-trueno-regular text-white/50 md:text-xl mt-10">Cari dengan menuliskan NIM kamu!</p>
+              <p className="z-[6] font-trueno-regular text-white/50 md:text-xl mt-10">Cari dengan menuliskan NIM atau Nama kamu!</p>
               <Image src={blueStarOutline} alt="star" className="absolute -top-1 left-40 w-auto h-[28px] object-cover z-[-1]" />
             </div>
 
@@ -130,7 +130,7 @@ export function KelompokSection() {
               <Image src={light} alt="ornament" className="min-w-0 h-auto flex-1 rotate-180" />
             </div>
             <span className="font-trueno-bold ">
-              NIM yang kamu masukkan <span className="text-[#ff0000] tracking-[2.55px]">salah!</span> Harap masukkan NIM yang benar dan lengkap.
+              NIM/Nama yang kamu masukkan <span className="text-[#ff0000] tracking-[2.55px]">salah!</span> Harap masukkan NIM/Nama yang benar dan lengkap.
             </span>
 
             <span className=" relative flex justify-between w-full items-center gap-2">
@@ -185,7 +185,7 @@ export function KelompokSection() {
             </Link>
 
             <div className="absolute sm:bottom-[20px] bottom-[30px] left-1/2 -translate-x-1/2 w-[296px] h-[63px] flex items-center justify-center flex-wrap">
-              <p className="font-trueno-regular text-white text-[12px]/[12px] wrap-break-word  text-center ">{group?.mentor.metadata.description}</p>
+              <p className="font-trueno-regular text-white text-[10px]/[10px] wrap-break-word  text-center ">{group?.mentor.metadata.description}</p>
             </div>
           </div>
           <div className="absolute w-[351px] h-[545px] z-[8] ">

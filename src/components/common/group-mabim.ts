@@ -187,7 +187,7 @@ export const groupMabim: GroupMabim[] = [
       phone: "+6283186103742",
       image: imgPhantom,
       metadata: {
-        skill: "",
+        skill: "Freaky",
         stats: 3,
         description: "Here for the vibes, the stories, and whatever comes up.",
       },
