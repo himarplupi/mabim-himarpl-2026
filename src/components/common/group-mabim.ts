@@ -1,3 +1,5 @@
+import "server-only";
+
 import { type StaticImageData } from "next/image";
 import imgVanguard from "@/assets/mentors/imgVanguard.png";
 import imgBastion from "@/assets/mentors/imgBastion.png";
