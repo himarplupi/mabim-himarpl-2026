@@ -45,9 +45,9 @@ export const groupMabim: GroupMabim[] = [
       phone: "+6281265949992",
       image: imgVanguard,
       metadata: {
-        skill: "",
+        skill: "Perfect",
         stats: 1,
-        description: "",
+        description: "manusia biasa dengan spesifikasi luar biasa",
       },
     },
     mentees: [
@@ -464,7 +464,7 @@ export const groupMabim: GroupMabim[] = [
       metadata: {
         skill: "Meujeuh euy",
         stats: 7,
-        description: "Kelompok",
+        description: "Semangat, berjuang, sukses",
       },
     },
     mentees: [
