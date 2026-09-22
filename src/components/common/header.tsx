@@ -114,7 +114,7 @@ export default function Header() {
         </SheetTrigger>
         <SheetContent>
           <SheetTitle hidden>im here</SheetTitle>
-          <div className="flex flex-col relative z-60 mt-4 items-start gap-5 text-white">
+          <div className="flex flex-col relative z-60 mt-7 items-start gap-5 text-white scale-95 ml-7">
             {navLinks.map((link) => {
               const isActive = activeLink === link.href;
 
@@ -134,7 +134,7 @@ export default function Header() {
                     handleLinkClick(link.href, e);
                   }}
                 >
-                  {isActive && <Image src={Highlight} fill className="h-fill" alt="highlight" />}
+                  {isActive && <Image src={Highlight} fill className="h-fill" loading="lazy" alt="highlight" />}
                   {link.name}
                 </Link>
               );

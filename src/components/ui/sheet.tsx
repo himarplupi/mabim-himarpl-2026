@@ -51,7 +51,7 @@ const SheetContent = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Con
         <Motion.div className="absolute z-10 inset-0 m-2 " initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.3 }}>
         </Motion.div>
       </AnimatePresence> */}
-      <Image className="absolute right-0 top-0 z-50 h-[100lvh] object-cover w-full" src={bgMenu} alt="ornaments" />
+      <Image className="absolute right-0 top-0 z-50 h-screen object-cover w-auto" src={bgMenu} alt="ornaments" />
       <SheetPrimitive.Close className="absolute right-4 top-6 z-60 rounded-sm text-white ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-0   disabled:pointer-events-none data-[state=open]:bg-secondary border-0 ring-0">
         <Cross2Icon className="h-8 w-8" />
         <span className="sr-only">Close</span>
