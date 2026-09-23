@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import logo from "@/app/icon.svg";
+import logo from "@/app/iconn.svg";
 import { useLenis } from "lenis/react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useState, useRef, useEffect } from "react";
