@@ -11,7 +11,7 @@ const events = [
   { label: "Day 1", short: "D-I", date: "2026-10-03" },
   { label: "Day 2", short: "D-II", date: "2026-10-04" },
   { label: "Day 3", short: "D-III", date: "2026-10-17" },
-  { label: "Day 4", short: "D-IV", date: "2026-10-25" },
+  { label: "Day 4", short: "D-IV", date: "2026-10-24" },
 ];
 
 export default function CountdownTimerTabs() {

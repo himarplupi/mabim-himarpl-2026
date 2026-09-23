@@ -37,7 +37,7 @@ const timeline = [
     showLocation: true,
   },
   {
-    date: "2026-10-25",
+    date: "2026-10-24",
     title: "Day - IV",
     location: "??",
     place: "??",
