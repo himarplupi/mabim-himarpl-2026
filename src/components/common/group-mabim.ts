@@ -313,9 +313,9 @@ export const groupMabim: GroupMabim[] = [
         name: "Muhammad Naya Dzulqornain",
       },
       {
-        nim: "",
+        nim: "2611136",
         id: "NXS-10",
-        name: "Syifa Nur Aini",
+        name: "Muhammad Fatih Ihsani",
       },
       {
         nim: "2605607",
@@ -461,6 +461,11 @@ export const groupMabim: GroupMabim[] = [
         id: "OBD-10",
         name: "Thamarezki Febyanda Zahran",
       },
+      {
+        nim: "2604430",
+        id: "OBD-11",
+        name: "Dzakwan Naharezka Pasha",
+      },
     ],
   },
   {
@@ -527,6 +532,11 @@ export const groupMabim: GroupMabim[] = [
         nim: "2602518",
         id: "APX-10",
         name: "Sulthon Farel Abdur Qois",
+      },
+      {
+        nim: "2613680",
+        id: "APX-11",
+        name: "Stevanus Pahala",
       },
     ],
   },
@@ -733,6 +743,11 @@ export const groupMabim: GroupMabim[] = [
         nim: "2603120",
         id: "SDY-10",
         name: "YUDHISTIRA",
+      },
+      {
+        nim: "211277",
+        id: "SDY-11",
+        name: "Muhammad Rafi Ramdhani",
       },
     ],
   },
