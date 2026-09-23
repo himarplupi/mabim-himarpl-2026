@@ -662,6 +662,11 @@ export const groupMabim: GroupMabim[] = [
         id: "AGS-10",
         name: "Syahrul Hidayatulloh",
       },
+      {
+        nim: "2613276",
+        id: "AGS-11",
+        name: "Muhammad Raihan ArRidho",
+      },
     ],
   },
   {
