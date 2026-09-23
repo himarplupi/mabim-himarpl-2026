@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import LogoAetherion from "@/assets/logo/aetherion.svg";
+import LogoAetherion from "@/assets/logo/aetherion.png";
 import LogoHIMARPL from "@/assets/logo/himarpl.svg";
 import LogoUPI from "@/assets/logo/cibiru.svg";
 

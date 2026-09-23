@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "MABIM RPL 2026",
   description: "Masa Bimbingan Rekayasa Perangkat Lunak 2026",
-  icons: [{ rel: "icon", url: "/icon.svg" }],
+  icons: [{ rel: "icon", url: "/iconn.svg" }],
 };
 
 import { fontE, fontI, fontJ, fontK, fontL } from "./fonts";
