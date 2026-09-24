@@ -49,16 +49,16 @@ export function HeroSection() {
           </p>
         </BlurFade>
       </div>
-      <div className="w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px] mt-8 hidden">
+      <div className="w-full max-w-[343px] md:max-w-[680px] lg:max-w-[900px] mt-8">
         <BlurFade delay={0.25 * 3} inView className="z-[5]">
           <div className="flex flex-col w-full max-w-[343px] md:max-w-[680px] relative items-start justify-center gap-4  z-[5] ">
-            <Link href="" target="_blank">
+            <Link href="https://drive.google.com/drive/folders/1ocfYNzBZF2icdBVxPxnrNF-pqzWgp3Rc?usp=drive_link" target="_blank">
               <div className="bg-[#faff22] px-7 py-3 [clip-path:polygon(0_0,100%_0,100%_100%,10%_100%,0_70%)] hover:scale-105 transition-all duration-300 ease-in-out relative">
                 <p className="font-trueno-regular text-[#001735] tracking-widest">Twibbon</p>
               </div>
               <Image src={yellowStar} alt="star" className="absolute top-6 left-10 w-[40px] h-[40px] object-cover z-[-1]" />
             </Link>
-            <Link href="" target="_blank">
+            <Link href="https://drive.google.com/file/d/1UbPnYUHFKoRzWrZMLmga3wRMvtNBMdEM/view?usp=drive_link" target="_blank">
               <div className="border-[#0C7CFE] border-[3px] px-7 py-3 [clip-path:polygon(0_0,100%_0,100%_100%,10%_100%,0_70%)] hover:scale-105 transition-all duration-300 ease-in-out">
                 <p className="font-trueno-regular text-white tracking-widest">Booklet</p>
               </div>
