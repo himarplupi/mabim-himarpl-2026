@@ -5,6 +5,18 @@ import { useLenis } from "lenis/react";
 import { cn } from "@/lib/utils";
 const navLinks = [
   {
+    name: "Booklet",
+    href: "https://drive.google.com/file/d/1UbPnYUHFKoRzWrZMLmga3wRMvtNBMdEM/view?usp=drive_link",
+  },
+  {
+    name: "Twibbon",
+    href: "https://drive.google.com/drive/folders/1ocfYNzBZF2icdBVxPxnrNF-pqzWgp3Rc?usp=drive_link",
+  },
+  {
+    name: "Logo",
+    href: "https://drive.google.com/file/d/1n1MA6CjuPWYKcC1KkeGpWnoS_038uwRA/view?usp=drivesdk",
+  },
+  {
     name: "Lihat Kelompok",
     href: "#kelompok",
   },
